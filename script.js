@@ -1,820 +1,213 @@
 /* =========================================================
-   GMM SOCIAL GROWTH
-   PREMIUM PORTFOLIO — FINAL JAVASCRIPT
+   GMM SOCIAL GROWTH — PREMIUM PORTFOLIO JS
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
     /* =====================================================
-       PROJECT DATA
-       Exact filenames provided by you
+       1. MOBILE MENU
        ===================================================== */
 
-    const projects = [
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
 
-        {
-            name: "Bags",
-            category: "Fashion / E-Commerce",
-            thumbnail: "bags-thumbnail.png",
-            screenshots: [
-                "bags-1.png",
-                "bags-2.png",
-                "bags-3.png",
-                "bags-4.png",
-                "bags-5.png"
-            ]
-        },
+    if (menuToggle && navLinks) {
 
-        {
-            name: "Beauty",
-            category: "Beauty / E-Commerce",
-            thumbnail: "beauty-thumbnail.png",
-            screenshots: [
-                "beauty-1.png",
-                "beauty-2.png",
-                "beauty-3.png",
-                "beauty-4.png",
-                "beauty-5.png",
-                "beauty-6.png"
-            ]
-        },
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
 
-        {
-            name: "Clothing",
-            category: "Fashion / E-Commerce",
-            thumbnail: "clothing-thumbnail.png",
-            screenshots: [
-                "clothing-1.png",
-                "clothing-2.png",
-                "clothing-3.png",
-                "clothing-4.png",
-                "clothing-5.png"
-            ]
-        },
+            const opened = navLinks.classList.contains("active");
 
-        {
-            name: "Glow",
-            category: "Beauty / E-Commerce",
-            thumbnail: "glow-thumbnail.png",
-            screenshots: [
-                "glow-1.png",
-                "glow-2.png",
-                "glow-3.png",
-                "glow-4.png",
-                "glow-5.png"
-            ]
-        },
+            menuToggle.setAttribute(
+                "aria-expanded",
+                opened ? "true" : "false"
+            );
 
-        {
-            name: "Jewellery",
-            category: "Jewellery / E-Commerce",
-            thumbnail: "jewellery-thumbnail.png",
-            screenshots: [
-                "jewellery-1.png",
-                "jewellery-2.png",
-                "jewellery-3.png",
-                "jewellery-4.png",
-                "jewellery-5.png",
-                "jewellery-6.png"
-            ]
-        },
+            menuToggle.innerHTML = opened ? "✕" : "☰";
+        });
 
-        {
-            name: "Mobile Electronics",
-            category: "Electronics / E-Commerce",
-            thumbnail: "mobile-electronics-thumbnail.png",
-            screenshots: [
-                "mobile-electronics-1.png",
-                "mobile-electronics-2.png",
-                "mobile-electronics-3.png",
-                "mobile-electronics-4.png",
-                "mobile-electronics-5.png",
-                "mobile-electronics-6.png"
-            ]
-        },
+        navLinks.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+                menuToggle.innerHTML = "☰";
+                menuToggle.setAttribute("aria-expanded", "false");
+            });
+        });
+    }
 
-        {
-            name: "Shoes",
-            category: "Fashion / E-Commerce",
-            thumbnail: "shoes-thumbnail.png",
-            screenshots: [
-                "shoes-1.png",
-                "shoes-2.png",
-                "shoes-3.png",
-                "shoes-4.png"
-            ]
-        },
 
-        {
-            name: "Skincare",
-            category: "Beauty / E-Commerce",
-            thumbnail: "skincare-thumbnail.png",
-            screenshots: [
-                "skincare-1.png",
-                "skincare-2.png",
-                "skincare-3.png",
-                "skincare-4.png",
-                "skincare-5.png",
-                "skincare-6.png"
-            ]
-        },
+    /* =====================================================
+       2. CHANGING DIGITAL MARKETING SKILLS
+       ===================================================== */
 
-        {
-            name: "Watches",
-            category: "Fashion / E-Commerce",
-            thumbnail: "watches-thumbnail.png",
-            screenshots: [
-                "watches-1.png",
-                "watches-2.png",
-                "watches-3.png",
-                "watches-4.png"
-            ]
-        },
+    const changingSkill =
+        document.querySelector(".skill-changing") ||
+        document.querySelector("#changingSkill") ||
+        document.querySelector(".changing-skill");
 
-        {
-            name: "Fashion",
-            category: "Fashion / E-Commerce",
-            thumbnail: "fashion-thumbnail.png",
-            screenshots: [
-                "fashion-1.png",
-                "fashion-2.png",
-                "fashion-3.png",
-                "fashion-4.png",
-                "fashion-5.png",
-                "fashion-6.png",
-                "fashion-7.png"
-            ]
-        },
-
-        {
-            name: "E-Commerce",
-            category: "E-Commerce Website",
-            thumbnail: "ecommerce-thumbnail.png",
-            screenshots: [
-                "ecommerce-1.png",
-                "ecommerce-2.png",
-                "ecommerce-3.png",
-                "ecommerce-4.png",
-                "ecommerce-5.png"
-            ]
-        },
-
-        {
-            name: "UAE E-Commerce",
-            category: "E-Commerce Website",
-            thumbnail: "uae-ecommerce-thumbnail.png",
-            screenshots: [
-                "uae-ecommerce-1.png",
-                "uae-ecommerce-2.png",
-                "uae-ecommerce-3.png",
-                "uae-ecommerce-4.png",
-                "uae-ecommerce-5.png"
-            ]
-        }
-
+    const skills = [
+        "Social Media Marketing",
+        "SEO",
+        "Google Ads",
+        "Facebook Ads",
+        "Instagram Marketing",
+        "YouTube Marketing",
+        "Content Marketing",
+        "Email Marketing",
+        "Lead Generation",
+        "E-Commerce Marketing",
+        "Shopify",
+        "Branding",
+        "Graphic Design",
+        "Video Editing",
+        "AI-Powered Marketing"
     ];
 
+    if (changingSkill) {
 
-    /* =====================================================
-       FIND PROJECT CONTAINER
-       ===================================================== */
+        let skillIndex = 0;
 
-    const projectGrid =
-        document.querySelector(".project-grid");
+        changingSkill.textContent = skills[0];
 
+        setInterval(() => {
 
-    /* =====================================================
-       CREATE PROJECT CARDS
-       ===================================================== */
+            changingSkill.style.opacity = "0";
+            changingSkill.style.transform = "translateY(8px)";
 
-    if (projectGrid) {
+            setTimeout(() => {
 
-        projectGrid.innerHTML = "";
+                skillIndex =
+                    (skillIndex + 1) % skills.length;
 
-        projects.forEach((project, index) => {
+                changingSkill.textContent =
+                    skills[skillIndex];
 
-            const card =
-                document.createElement("article");
+                changingSkill.style.opacity = "1";
+                changingSkill.style.transform =
+                    "translateY(0)";
 
-            card.className =
-                "project-card";
+            }, 300);
 
-            card.dataset.project =
-                index;
-
-
-            card.innerHTML = `
-
-                <div class="project-image">
-
-                    <img
-                        src="${project.thumbnail}"
-                        alt="${project.name} Project"
-                        loading="lazy"
-                    >
-
-                </div>
-
-
-                <div class="project-info">
-
-                    <span class="project-category">
-                        ${project.category}
-                    </span>
-
-                    <h3>
-                        ${project.name}
-                    </h3>
-
-                    <p>
-                        Professional project design
-                        and digital experience.
-                    </p>
-
-                    <button
-                        class="view-project"
-                        type="button"
-                        data-project-index="${index}"
-                    >
-
-                        View Project
-
-                        <span aria-hidden="true">
-                            →
-                        </span>
-
-                    </button>
-
-                </div>
-
-
-                <div
-                    class="project-screenshots"
-                    aria-label="${project.name} screenshots"
-                >
-
-                    ${project.screenshots.map(
-                        (image, imageIndex) => `
-
-                        <img
-                            src="${image}"
-                            alt="${project.name} Screenshot ${imageIndex + 1}"
-                            loading="lazy"
-                            data-project-index="${index}"
-                            data-image-index="${imageIndex}"
-                        >
-
-                    `
-                    ).join("")}
-
-                </div>
-
-            `;
-
-
-            projectGrid.appendChild(card);
-
-        });
-
+        }, 2200);
     }
 
 
     /* =====================================================
-       LIGHTBOX ELEMENTS
+       3. SCROLL REVEAL
        ===================================================== */
 
-    let lightbox =
-        document.querySelector(".lightbox");
-
-
-    /*
-       اگر HTML میں lightbox پہلے سے نہیں ہے
-       تو JS خود بنا دے گی۔
-    */
-
-    if (!lightbox) {
-
-        lightbox =
-            document.createElement("div");
-
-        lightbox.className =
-            "lightbox";
-
-        lightbox.innerHTML = `
-
-            <button
-                class="lightbox-close"
-                type="button"
-                aria-label="Close project"
-            >
-                ×
-            </button>
-
-            <div class="lightbox-content">
-
-                <h2 class="lightbox-title">
-                    Project
-                </h2>
-
-                <div class="lightbox-gallery"></div>
-
-            </div>
-
-        `;
-
-        document.body.appendChild(lightbox);
-
-    }
-
-
-    const closeButton =
-        lightbox.querySelector(".lightbox-close");
-
-    const lightboxTitle =
-        lightbox.querySelector(".lightbox-title");
-
-    const lightboxGallery =
-        lightbox.querySelector(".lightbox-gallery");
-
-
-    /* =====================================================
-       OPEN PROJECT LIGHTBOX
-       ===================================================== */
-
-    function openProject(index) {
-
-        const project =
-            projects[index];
-
-        if (!project) return;
-
-
-        lightboxTitle.textContent =
-            project.name;
-
-
-        lightboxGallery.innerHTML = "";
-
-
-        project.screenshots.forEach(
-            (image, imageIndex) => {
-
-                const img =
-                    document.createElement("img");
-
-                img.src =
-                    image;
-
-                img.alt =
-                    `${project.name} Screenshot ${imageIndex + 1}`;
-
-                img.loading =
-                    "lazy";
-
-                lightboxGallery.appendChild(img);
-
-            }
-        );
-
-
-        lightbox.classList.add("active");
-
-        document.body.style.overflow =
-            "hidden";
-
-    }
-
-
-    /* =====================================================
-       CLOSE LIGHTBOX
-       ===================================================== */
-
-    function closeProject() {
-
-        lightbox.classList.remove(
-            "active"
-        );
-
-        document.body.style.overflow =
-            "";
-
-    }
-
-
-    /* =====================================================
-       PROJECT CLICK
-       ===================================================== */
-
-    document.addEventListener(
-        "click",
-        (event) => {
-
-            const button =
-                event.target.closest(
-                    ".view-project"
-                );
-
-
-            if (button) {
-
-                const index =
-                    Number(
-                        button.dataset.projectIndex
-                    );
-
-                openProject(index);
-
-                return;
-
-            }
-
-
-            const screenshot =
-                event.target.closest(
-                    ".project-screenshots img"
-                );
-
-
-            if (screenshot) {
-
-                const index =
-                    Number(
-                        screenshot.dataset.projectIndex
-                    );
-
-                openProject(index);
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
-       CLOSE BUTTON
-       ===================================================== */
-
-    if (closeButton) {
-
-        closeButton.addEventListener(
-            "click",
-            closeProject
-        );
-
-    }
-
-
-    /* =====================================================
-       CLICK OUTSIDE LIGHTBOX
-       ===================================================== */
-
-    lightbox.addEventListener(
-        "click",
-        (event) => {
-
-            if (
-                event.target === lightbox
-            ) {
-
-                closeProject();
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
-       ESC KEY
-       ===================================================== */
-
-    document.addEventListener(
-        "keydown",
-        (event) => {
-
-            if (
-                event.key === "Escape"
-            ) {
-
-                closeProject();
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
-       MOBILE MENU
-       ===================================================== */
-
-    const menuToggle =
-        document.querySelector(
-            ".menu-toggle"
-        );
-
-    const navigation =
-        document.querySelector("nav");
-
-
-    if (
-        menuToggle &&
-        navigation
-    ) {
-
-        menuToggle.addEventListener(
-            "click",
-            () => {
-
-                navigation.classList.toggle(
-                    "active"
-                );
-
-                menuToggle.classList.toggle(
-                    "active"
-                );
-
-            }
-        );
-
-
-        navigation
-            .querySelectorAll("a")
-            .forEach(link => {
-
-                link.addEventListener(
-                    "click",
-                    () => {
-
-                        navigation.classList.remove(
-                            "active"
-                        );
-
-                        menuToggle.classList.remove(
-                            "active"
-                        );
-
-                    }
-                );
-
-            });
-
-    }
-
-
-    /* =====================================================
-       ACTIVE NAVIGATION
-       ===================================================== */
-
-    const sections =
+    const revealElements =
         document.querySelectorAll(
-            "section[id]"
+            ".reveal, .service-card, .skill-card, .project-card, .graphic-card, .document-card"
         );
 
-    const navLinks =
-        document.querySelectorAll(
-            'nav a[href^="#"]'
-        );
+    if ("IntersectionObserver" in window) {
 
+        const observer =
+            new IntersectionObserver(
+                (entries, observerInstance) => {
 
-    function updateActiveNav() {
+                    entries.forEach(entry => {
 
-        let current =
-            "";
+                        if (entry.isIntersecting) {
 
-        sections.forEach(section => {
+                            entry.target.classList.add("visible");
 
-            const sectionTop =
-                section.offsetTop - 160;
+                            observerInstance.unobserve(
+                                entry.target
+                            );
+                        }
 
-            if (
-                window.scrollY >=
-                sectionTop
-            ) {
+                    });
 
-                current =
-                    section.getAttribute("id");
-
-            }
-
-        });
-
-
-        navLinks.forEach(link => {
-
-            link.classList.remove(
-                "active"
-            );
-
-
-            const href =
-                link.getAttribute("href");
-
-
-            if (
-                href === `#${current}`
-            ) {
-
-                link.classList.add(
-                    "active"
-                );
-
-            }
-
-        });
-
-    }
-
-
-    window.addEventListener(
-        "scroll",
-        updateActiveNav,
-        {
-            passive: true
-        }
-    );
-
-
-    updateActiveNav();
-
-
-    /* =====================================================
-       BACK TO TOP
-       ===================================================== */
-
-    let backToTop =
-        document.querySelector(
-            ".back-to-top"
-        );
-
-
-    if (!backToTop) {
-
-        backToTop =
-            document.createElement(
-                "button"
-            );
-
-        backToTop.className =
-            "back-to-top";
-
-        backToTop.type =
-            "button";
-
-        backToTop.innerHTML =
-            "↑";
-
-        backToTop.setAttribute(
-            "aria-label",
-            "Back to top"
-        );
-
-        document.body.appendChild(
-            backToTop
-        );
-
-    }
-
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            if (
-                window.scrollY > 600
-            ) {
-
-                backToTop.classList.add(
-                    "show"
-                );
-
-            } else {
-
-                backToTop.classList.remove(
-                    "show"
-                );
-
-            }
-
-        },
-        {
-            passive: true
-        }
-    );
-
-
-    backToTop.addEventListener(
-        "click",
-        () => {
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        }
-    );
-
-
-    /* =====================================================
-       SMOOTH ANCHOR SCROLL
-       ===================================================== */
-
-    document
-        .querySelectorAll(
-            'a[href^="#"]'
-        )
-        .forEach(anchor => {
-
-            anchor.addEventListener(
-                "click",
-                function(event) {
-
-                    const targetId =
-                        this.getAttribute(
-                            "href"
-                        );
-
-                    if (
-                        !targetId ||
-                        targetId === "#"
-                    ) {
-                        return;
-                    }
-
-
-                    const target =
-                        document.querySelector(
-                            targetId
-                        );
-
-
-                    if (target) {
-
-                        event.preventDefault();
-
-                        target.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start"
-                        });
-
-                    }
-
+                },
+                {
+                    threshold: 0.12
                 }
             );
 
+        revealElements.forEach(element => {
+
+            if (!element.classList.contains("reveal")) {
+                element.classList.add("reveal");
+            }
+
+            observer.observe(element);
+        });
+
+    } else {
+
+        revealElements.forEach(element => {
+            element.classList.add("visible");
+        });
+    }
+
+
+    /* =====================================================
+       4. PROJECT GALLERY
+       ===================================================== */
+
+    const projectCards =
+        document.querySelectorAll(".project-card");
+
+    projectCards.forEach(card => {
+
+        const thumbnail =
+            card.querySelector(".project-thumbnail");
+
+        const gallery =
+            card.querySelector(".project-gallery");
+
+        if (!thumbnail || !gallery) return;
+
+        /*
+         * Click thumbnail to open/close screenshots
+         */
+
+        thumbnail.addEventListener("click", () => {
+
+            document
+                .querySelectorAll(".project-card.active")
+                .forEach(otherCard => {
+
+                    if (otherCard !== card) {
+                        otherCard.classList.remove("active");
+                    }
+
+                });
+
+            card.classList.toggle("active");
+
         });
 
 
-    /* =====================================================
-       IMAGE ERROR HANDLING
-       ===================================================== */
+        /*
+         * Keyboard support
+         */
 
-    document.addEventListener(
-        "error",
-        (event) => {
+        thumbnail.setAttribute(
+            "tabindex",
+            "0"
+        );
 
-            if (
-                event.target.tagName ===
-                "IMG"
-            ) {
+        thumbnail.setAttribute(
+            "role",
+            "button"
+        );
 
-                event.target.classList.add(
-                    "image-error"
-                );
+        thumbnail.addEventListener(
+            "keydown",
+            event => {
 
-                console.warn(
-                    "Image not found:",
-                    event.target.src
-                );
+                if (
+                    event.key === "Enter" ||
+                    event.key === " "
+                ) {
 
-            }
+                    event.preventDefault();
 
-        },
-        true
-    );
-
-
-    /* =====================================================
-       PROJECT IMAGE PRELOAD
-       ===================================================== */
-
-    /*
-       Screenshots کو background میں preload
-       کیا جاتا ہے تاکہ lightbox کھولنے پر
-       loading کم ہو۔
-    */
-
-    projects.forEach(project => {
-
-        project.screenshots.forEach(
-            image => {
-
-                const preload =
-                    new Image();
-
-                preload.src =
-                    image;
+                    thumbnail.click();
+                }
 
             }
         );
@@ -823,32 +216,493 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       CURRENT YEAR
+       5. PROJECT DATA
        ===================================================== */
 
-    const year =
-        document.querySelector(
-            "#currentYear"
+    /*
+     * IMPORTANT:
+     * Images are NOT assumed to be inside category folders.
+     *
+     * All filenames are read directly from the images
+     * directory.
+     */
+
+    const projects = {
+
+        bags: [
+            "bags-1.png",
+            "bags-2.png",
+            "bags-3.png",
+            "bags-4.png",
+            "bags-5.png"
+        ],
+
+        beauty: [
+            "beauty-1.png",
+            "beauty-2.png",
+            "beauty-3.png",
+            "beauty-4.png",
+            "beauty-5.png",
+            "beauty-6.png"
+        ],
+
+        clothing: [
+            "clothing-1.png",
+            "clothing-2.png",
+            "clothing-3.png",
+            "clothing-4.png",
+            "clothing-5.png"
+        ],
+
+        glow: [
+            "glow-1.png",
+            "glow-2.png",
+            "glow-3.png",
+            "glow-4.png",
+            "glow-5.png"
+        ],
+
+        jewellery: [
+            "jewellery-1.png",
+            "jewellery-2.png",
+            "jewellery-3.png",
+            "jewellery-4.png",
+            "jewellery-5.png",
+            "jewellery-6.png"
+        ],
+
+        mobileElectronics: [
+            "mobile-electronics-1.png",
+            "mobile-electronics-2.png",
+            "mobile-electronics-3.png",
+            "mobile-electronics-4.png",
+            "mobile-electronics-5.png",
+            "mobile-electronics-6.png"
+        ],
+
+        shoes: [
+            "shoes-1.png",
+            "shoes-2.png",
+            "shoes-3.png",
+            "shoes-4.png"
+        ],
+
+        skincare: [
+            "skincare-1.png",
+            "skincare-2.png",
+            "skincare-3.png",
+            "skincare-4.png",
+            "skincare-5.png",
+            "skincare-6.png"
+        ],
+
+        watches: [
+            "watches-1.png",
+            "watches-2.png",
+            "watches-3.png",
+            "watches-4.png"
+        ],
+
+        fashion: [
+            "fashion-1.png",
+            "fashion-2.png",
+            "fashion-3.png",
+            "fashion-4.png",
+            "fashion-5.png",
+            "fashion-6.png",
+            "fashion-7.png"
+        ],
+
+        ecommerce: [
+            "ecommerce-1.png",
+            "ecommerce-2.png",
+            "ecommerce-3.png",
+            "ecommerce-4.png",
+            "ecommerce-5.png"
+        ],
+
+        uaeEcommerce: [
+            "uae-ecommerce-1.png",
+            "uae-ecommerce-2.png",
+            "uae-ecommerce-3.png",
+            "uae-ecommerce-4.png",
+            "uae-ecommerce-5.png"
+        ]
+
+    };
+
+
+    /* =====================================================
+       6. AUTOMATICALLY LOAD PROJECT SCREENSHOTS
+       ===================================================== */
+
+    const imageFolder =
+        "images/";
+
+    function loadProjectGallery(
+        projectCard,
+        imageNames
+    ) {
+
+        const gallery =
+            projectCard.querySelector(
+                ".project-gallery"
+            );
+
+        if (!gallery) return;
+
+        gallery.innerHTML = "";
+
+        imageNames.forEach(
+            (imageName, index) => {
+
+                const image =
+                    document.createElement("img");
+
+                image.src =
+                    imageFolder + imageName;
+
+                image.alt =
+                    `Project screenshot ${index + 1}`;
+
+                image.loading = "lazy";
+
+                image.addEventListener(
+                    "error",
+                    () => {
+                        image.remove();
+                    }
+                );
+
+                gallery.appendChild(image);
+            }
+        );
+    }
+
+
+    /* =====================================================
+       7. MATCH PROJECT CARDS WITH PROJECT DATA
+       ===================================================== */
+
+    projectCards.forEach(card => {
+
+        const projectName =
+            (
+                card.dataset.project ||
+                card.dataset.category ||
+                card
+                    .querySelector("h3")
+                    ?.textContent
+                    ?.toLowerCase()
+            );
+
+        if (!projectName) return;
+
+        const cleanName =
+            projectName
+                .toLowerCase()
+                .trim()
+                .replace(/[^a-z0-9]+/g, "");
+
+        let matchedProject = null;
+
+        Object.keys(projects).forEach(key => {
+
+            const cleanKey =
+                key
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]+/g, "");
+
+            if (cleanKey === cleanName) {
+                matchedProject = projects[key];
+            }
+
+        });
+
+        if (matchedProject) {
+
+            loadProjectGallery(
+                card,
+                matchedProject
+            );
+        }
+
+    });
+
+
+    /* =====================================================
+       8. GRAPHIC DESIGN THUMBNAILS
+       ===================================================== */
+
+    const graphicImages = [
+        "thumbnail-1.png",
+        "thumbnail-2.png",
+        "thumbnail-3.png",
+        "thumbnail-4.png",
+        "thumbnail-5.png",
+        "thumbnail-6.png",
+        "thumbnail-7.png",
+        "thumbnail-8.png",
+        "thumbnail-9.png"
+    ];
+
+    const graphicCards =
+        document.querySelectorAll(
+            ".graphic-card"
         );
 
-    if (year) {
+    graphicCards.forEach(
+        (card, index) => {
 
-        year.textContent =
-            new Date().getFullYear();
+            const image =
+                card.querySelector("img");
+
+            if (!image) return;
+
+            if (graphicImages[index]) {
+
+                image.src =
+                    imageFolder +
+                    graphicImages[index];
+
+                image.alt =
+                    `Graphic Design Thumbnail ${index + 1}`;
+
+                image.loading = "lazy";
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       9. IMAGE FALLBACK
+       ===================================================== */
+
+    document
+        .querySelectorAll("img")
+        .forEach(image => {
+
+            image.addEventListener(
+                "error",
+                () => {
+
+                    image.classList.add(
+                        "image-error"
+                    );
+
+                }
+            );
+
+        });
+
+
+    /* =====================================================
+       10. SMOOTH INTERNAL LINKS
+       ===================================================== */
+
+    document
+        .querySelectorAll('a[href^="#"]')
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                event => {
+
+                    const targetId =
+                        link
+                            .getAttribute("href");
+
+                    if (
+                        !targetId ||
+                        targetId === "#"
+                    ) return;
+
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
+
+                    if (!target) return;
+
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                }
+            );
+
+        });
+
+
+    /* =====================================================
+       11. HEADER SCROLL EFFECT
+       ===================================================== */
+
+    const header =
+        document.querySelector(
+            "header"
+        );
+
+    if (header) {
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                if (window.scrollY > 40) {
+
+                    header.style.boxShadow =
+                        "0 10px 35px rgba(0,0,0,.35)";
+
+                } else {
+
+                    header.style.boxShadow =
+                        "none";
+
+                }
+
+            },
+            { passive: true }
+        );
 
     }
 
 
     /* =====================================================
-       CONSOLE MESSAGE
+       12. WHATSAPP SERVICE ORDER
        ===================================================== */
 
-    console.log(
-        "GMM Social Growth Portfolio loaded successfully."
-    );
+    const whatsappButtons =
+        document.querySelectorAll(
+            ".whatsapp-btn, [data-whatsapp]"
+        );
 
-    console.log(
-        `${projects.length} projects loaded.`
+    whatsappButtons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            event => {
+
+                /*
+                 * If a normal WhatsApp link is already
+                 * provided in HTML, don't replace it.
+                 */
+
+                const existingHref =
+                    button.getAttribute("href");
+
+                if (
+                    existingHref &&
+                    existingHref.includes("wa.me")
+                ) {
+                    return;
+                }
+
+                const phone =
+                    button.dataset.whatsapp;
+
+                if (!phone) return;
+
+                event.preventDefault();
+
+                const message =
+                    encodeURIComponent(
+                        "Hello GMM Social Growth, I am interested in your services."
+                    );
+
+                window.open(
+                    `https://wa.me/${phone}?text=${message}`,
+                    "_blank"
+                );
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       13. PROJECT HOVER GLOW
+       ===================================================== */
+
+    projectCards.forEach(card => {
+
+        card.addEventListener(
+            "mousemove",
+            event => {
+
+                const rect =
+                    card.getBoundingClientRect();
+
+                const x =
+                    event.clientX -
+                    rect.left;
+
+                const y =
+                    event.clientY -
+                    rect.top;
+
+                card.style.setProperty(
+                    "--mouse-x",
+                    `${x}px`
+                );
+
+                card.style.setProperty(
+                    "--mouse-y",
+                    `${y}px`
+                );
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       14. PREVENT IMAGE DRAGGING
+       ===================================================== */
+
+    document
+        .querySelectorAll("img")
+        .forEach(image => {
+
+            image.addEventListener(
+                "dragstart",
+                event => {
+                    event.preventDefault();
+                }
+            );
+
+        });
+
+
+    /* =====================================================
+       15. CURRENT YEAR
+       ===================================================== */
+
+    const yearElements =
+        document.querySelectorAll(
+            "#currentYear, .current-year"
+        );
+
+    yearElements.forEach(element => {
+
+        element.textContent =
+            new Date().getFullYear();
+
+    });
+
+
+    /* =====================================================
+       16. PAGE LOADED
+       ===================================================== */
+
+    document.body.classList.add(
+        "page-loaded"
     );
 
 });
