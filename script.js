@@ -1,309 +1,100 @@
 /* =========================================================
-   PORTFOLIO WEBSITE - MAIN JAVASCRIPT
-========================================================= */
+   GMM SOCIAL GROWTH — PREMIUM PORTFOLIO
+   script.js
+   ========================================================= */
+
+
+/* =========================================================
+   DOM READY
+   ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================================
-       MOBILE MENU
-    ===================================================== */
+    /* -----------------------------------------------------
+       ELEMENTS
+    ----------------------------------------------------- */
 
     const menuToggle = document.querySelector(".menu-toggle");
     const nav = document.querySelector("nav");
 
+    const backToTop = document.querySelector(".back-to-top");
+
+    const lightbox = document.querySelector(".lightbox");
+    const lightboxClose = document.querySelector(".lightbox-close");
+
+    const lightboxTitle =
+        document.querySelector(".lightbox-content h2");
+
+    const lightboxGallery =
+        document.querySelector(".lightbox-gallery");
+
+    const navLinks =
+        document.querySelectorAll("nav a");
+
+    const projectCards =
+        document.querySelectorAll(".project-card");
+
+    const graphicCards =
+        document.querySelectorAll(".graphic-card");
+
+
+
+    /* =====================================================
+       MOBILE MENU
+       ===================================================== */
+
     if (menuToggle && nav) {
 
         menuToggle.addEventListener("click", () => {
+
             nav.classList.toggle("active");
-            menuToggle.classList.toggle("active");
+
+            const isOpen =
+                nav.classList.contains("active");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
+
         });
 
-        // Close menu after clicking a navigation link
-        const navLinks = nav.querySelectorAll("a");
+
+        /* Close menu after clicking a link */
 
         navLinks.forEach(link => {
+
             link.addEventListener("click", () => {
+
                 nav.classList.remove("active");
-                menuToggle.classList.remove("active");
-            });
-        });
-    }
 
-
-    /* =====================================================
-       HEADER SCROLL EFFECT
-    ===================================================== */
-
-    const header = document.querySelector("header");
-
-    function updateHeader() {
-
-        if (!header) return;
-
-        if (window.scrollY > 40) {
-            header.classList.add("scrolled");
-        } else {
-            header.classList.remove("scrolled");
-        }
-    }
-
-    window.addEventListener("scroll", updateHeader);
-
-    updateHeader();
-
-
-    /* =====================================================
-       BACK TO TOP BUTTON
-    ===================================================== */
-
-    const backToTop = document.querySelector(".back-to-top");
-
-    if (backToTop) {
-
-        window.addEventListener("scroll", () => {
-
-            if (window.scrollY > 500) {
-                backToTop.classList.add("show");
-            } else {
-                backToTop.classList.remove("show");
-            }
-
-        });
-
-        backToTop.addEventListener("click", () => {
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        });
-    }
-
-
-    /* =====================================================
-       TYPING EFFECT
-    ===================================================== */
-
-    const typingElement = document.querySelector(".typing-text");
-
-    if (typingElement) {
-
-        const words = [
-            "Digital Marketing Expert",
-            "E-Commerce Expert",
-            "Social Media Manager",
-            "Shopify Store Designer",
-            "Graphic Designer",
-            "Video Editor"
-        ];
-
-        let wordIndex = 0;
-        let charIndex = 0;
-
-        let deleting = false;
-
-        function typeEffect() {
-
-            const currentWord = words[wordIndex];
-
-            if (!deleting) {
-
-                typingElement.textContent =
-                    currentWord.substring(0, charIndex + 1);
-
-                charIndex++;
-
-                if (charIndex === currentWord.length) {
-
-                    deleting = true;
-
-                    setTimeout(typeEffect, 1800);
-
-                    return;
-                }
-
-            } else {
-
-                typingElement.textContent =
-                    currentWord.substring(0, charIndex - 1);
-
-                charIndex--;
-
-                if (charIndex === 0) {
-
-                    deleting = false;
-
-                    wordIndex++;
-
-                    if (wordIndex >= words.length) {
-                        wordIndex = 0;
-                    }
-
-                }
-            }
-
-            const speed = deleting ? 45 : 85;
-
-            setTimeout(typeEffect, speed);
-        }
-
-        typeEffect();
-    }
-
-
-    /* =====================================================
-       SCROLL REVEAL ANIMATION
-    ===================================================== */
-
-    const revealElements = document.querySelectorAll(
-        ".service-card, .project-card, .graphic-card, .review-card, .skill-box .card, .contact-item, .cert-box"
-    );
-
-    if ("IntersectionObserver" in window) {
-
-        const revealObserver = new IntersectionObserver(
-            (entries, observer) => {
-
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.classList.add("reveal-show");
-
-                        observer.unobserve(entry.target);
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.12
-            }
-        );
-
-        revealElements.forEach(element => {
-
-            element.classList.add("reveal");
-
-            revealObserver.observe(element);
-
-        });
-
-    } else {
-
-        revealElements.forEach(element => {
-            element.classList.add("reveal-show");
-        });
-
-    }
-
-
-    /* =====================================================
-       PROJECT IMAGE LIGHTBOX
-    ===================================================== */
-
-    const projectImages = document.querySelectorAll(
-        ".project-image img, .graphic-card img"
-    );
-
-    const lightbox = document.querySelector(".lightbox");
-
-    if (lightbox && projectImages.length > 0) {
-
-        const lightboxImage =
-            lightbox.querySelector(".lightbox-image");
-
-        const closeLightbox =
-            lightbox.querySelector(".lightbox-close");
-
-        projectImages.forEach(image => {
-
-            image.addEventListener("click", () => {
-
-                if (!lightboxImage) return;
-
-                lightboxImage.src = image.src;
-
-                lightbox.classList.add("active");
-
-                document.body.style.overflow = "hidden";
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
             });
 
         });
 
-        if (closeLightbox) {
-
-            closeLightbox.addEventListener("click", () => {
-
-                lightbox.classList.remove("active");
-
-                document.body.style.overflow = "";
-
-            });
-
-        }
-
-        lightbox.addEventListener("click", event => {
-
-            if (event.target === lightbox) {
-
-                lightbox.classList.remove("active");
-
-                document.body.style.overflow = "";
-
-            }
-
-        });
-
     }
 
 
-    /* =====================================================
-       ESCAPE KEY - CLOSE LIGHTBOX / MENU
-    ===================================================== */
-
-    document.addEventListener("keydown", event => {
-
-        if (event.key === "Escape") {
-
-            if (nav) {
-                nav.classList.remove("active");
-            }
-
-            if (menuToggle) {
-                menuToggle.classList.remove("active");
-            }
-
-            if (lightbox) {
-                lightbox.classList.remove("active");
-
-                document.body.style.overflow = "";
-            }
-        }
-
-    });
-
 
     /* =====================================================
-       SMOOTH ANCHOR SCROLL
-    ===================================================== */
+       SMOOTH SCROLL
+       ===================================================== */
 
-    const anchorLinks =
-        document.querySelectorAll('a[href^="#"]');
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
 
-    anchorLinks.forEach(link => {
-
-        link.addEventListener("click", event => {
+        link.addEventListener("click", function (event) {
 
             const targetId =
-                link.getAttribute("href");
+                this.getAttribute("href");
 
             if (
                 !targetId ||
-                targetId === "#" ||
-                targetId.length < 2
+                targetId === "#"
             ) {
                 return;
             }
@@ -311,9 +102,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const target =
                 document.querySelector(targetId);
 
-            if (!target) return;
+            if (!target) {
+                return;
+            }
 
             event.preventDefault();
+
+            const header =
+                document.querySelector("header");
 
             const headerHeight =
                 header ? header.offsetHeight : 0;
@@ -321,7 +117,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const targetPosition =
                 target.getBoundingClientRect().top +
                 window.pageYOffset -
-                headerHeight;
+                headerHeight +
+                5;
 
             window.scrollTo({
                 top: targetPosition,
@@ -333,144 +130,456 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
+
     /* =====================================================
-       WHATSAPP SERVICE ORDER
-    ===================================================== */
+       PROJECT IMAGE GALLERY
+       
+       IMPORTANT:
+       Project card can contain:
+       
+       data-project="fashion"
+       data-title="Fashion Store"
 
-    const whatsappForm =
-        document.querySelector("#whatsappForm");
+       Gallery images can use:
+       
+       data-gallery="fashion"
+       data-image="projects/fashion-1.png"
 
-    if (whatsappForm) {
+       If images are uploaded separately on GitHub,
+       this system can use the exact filenames.
+       ===================================================== */
 
-        whatsappForm.addEventListener("submit", event => {
 
-            event.preventDefault();
+    const projectGalleryData = {
 
-            const name =
-                document.querySelector("#name")?.value.trim() || "";
+        fashion: [
+            "fashion-1.png",
+            "fashion-2.png",
+            "fashion-3.png"
+        ],
 
-            const email =
-                document.querySelector("#email")?.value.trim() || "";
+        bags: [
+            "bags-1.png",
+            "bags-2.png",
+            "bags-3.png"
+        ],
 
-            const phone =
-                document.querySelector("#phone")?.value.trim() || "";
+        beauty: [
+            "beauty-1.png",
+            "beauty-2.png",
+            "beauty-3.png"
+        ],
 
-            const service =
-                document.querySelector("#service")?.value.trim() || "";
+        ecommerce: [
+            "ecommerce-1.png",
+            "ecommerce-2.png",
+            "ecommerce-3.png"
+        ],
 
-            const message =
-                document.querySelector("#message")?.value.trim() || "";
+        "uae-ecommerce": [
+            "uae-ecommerce-1.png",
+            "uae-ecommerce-2.png",
+            "uae-ecommerce-3.png"
+        ]
 
-            if (!name || !service) {
+    };
 
-                alert(
-                    "Please enter your name and select a service."
-                );
 
-                return;
-            }
 
-            const whatsappNumber =
-                "923126038388";
+    /* =====================================================
+       OPEN PROJECT
+       ===================================================== */
 
-            const whatsappMessage =
-                `Hello Ghulam Mustafa,
+    function openProjectGallery(
+        projectName,
+        projectTitle
+    ) {
 
-I want to order your service.
+        if (!lightbox || !lightboxGallery) {
+            return;
+        }
 
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Service: ${service}
 
-Project Details:
-${message || "Not provided"}
+        const images =
+            projectGalleryData[projectName];
 
-Please contact me regarding this project.`;
 
-            const whatsappURL =
-                "https://wa.me/" +
-                whatsappNumber +
-                "?text=" +
-                encodeURIComponent(whatsappMessage);
+        if (!images || images.length === 0) {
 
-            window.open(
-                whatsappURL,
-                "_blank"
-            );
+            lightboxGallery.innerHTML = `
+                <div style="
+                    grid-column:1/-1;
+                    text-align:center;
+                    padding:50px 20px;
+                    color:#aaa;
+                ">
+                    Project images will be added soon.
+                </div>
+            `;
 
-        });
+        } else {
+
+            lightboxGallery.innerHTML = "";
+
+            images.forEach((imageName, index) => {
+
+                const img =
+                    document.createElement("img");
+
+                img.src =
+                    imageName;
+
+                img.alt =
+                    `${projectTitle} screenshot ${index + 1}`;
+
+                img.loading = "lazy";
+
+                img.onerror = function () {
+
+                    this.style.display = "none";
+
+                };
+
+                lightboxGallery.appendChild(img);
+
+            });
+
+        }
+
+
+        if (lightboxTitle) {
+
+            lightboxTitle.textContent =
+                projectTitle || "Project";
+
+        }
+
+
+        lightbox.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+
     }
 
 
-    /* =====================================================
-       CURRENT YEAR
-    ===================================================== */
-
-    const yearElements =
-        document.querySelectorAll(".current-year");
-
-    yearElements.forEach(element => {
-
-        element.textContent =
-            new Date().getFullYear();
-
-    });
-
 
     /* =====================================================
-       IMAGE ERROR HANDLING
-    ===================================================== */
+       PROJECT BUTTONS
+       ===================================================== */
 
-    const allImages =
-        document.querySelectorAll("img");
+    projectCards.forEach(card => {
 
-    allImages.forEach(image => {
+        const button =
+            card.querySelector(".view-project");
 
-        image.addEventListener("error", () => {
+        if (!button) {
+            return;
+        }
 
-            image.classList.add("image-error");
+
+        button.addEventListener("click", () => {
+
+            const projectName =
+                card.dataset.project;
+
+            const projectTitle =
+                card.dataset.title ||
+                card.querySelector("h3")?.textContent ||
+                "Project";
+
+            openProjectGallery(
+                projectName,
+                projectTitle
+            );
 
         });
 
     });
+
+
+
+    /* =====================================================
+       GRAPHIC DESIGN GALLERY
+       
+       Graphic cards normally show ONE thumbnail.
+       Clicking it opens the image.
+       ===================================================== */
+
+    graphicCards.forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            const image =
+                card.querySelector("img");
+
+            if (!image) {
+                return;
+            }
+
+
+            if (!lightbox || !lightboxGallery) {
+                return;
+            }
+
+
+            lightboxGallery.innerHTML = "";
+
+
+            const img =
+                document.createElement("img");
+
+            img.src =
+                image.src;
+
+            img.alt =
+                image.alt ||
+                "Graphic Design";
+
+            img.style.gridColumn =
+                "1 / -1";
+
+            lightboxGallery.appendChild(img);
+
+
+            if (lightboxTitle) {
+
+                lightboxTitle.textContent =
+                    card.dataset.title ||
+                    "Graphic Design";
+
+            }
+
+
+            lightbox.classList.add("active");
+
+            document.body.style.overflow =
+                "hidden";
+
+        });
+
+    });
+
+
+
+    /* =====================================================
+       CLOSE LIGHTBOX
+       ===================================================== */
+
+    function closeLightbox() {
+
+        if (!lightbox) {
+            return;
+        }
+
+        lightbox.classList.remove("active");
+
+        document.body.style.overflow = "";
+
+    }
+
+
+    if (lightboxClose) {
+
+        lightboxClose.addEventListener(
+            "click",
+            closeLightbox
+        );
+
+    }
+
+
+    /* Close by clicking outside */
+
+    if (lightbox) {
+
+        lightbox.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    event.target === lightbox
+                ) {
+
+                    closeLightbox();
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* Close with ESC */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (event.key === "Escape") {
+
+                closeLightbox();
+
+            }
+
+        }
+    );
+
+
+
+    /* =====================================================
+       BACK TO TOP
+       ===================================================== */
+
+    function handleBackToTop() {
+
+        if (!backToTop) {
+            return;
+        }
+
+
+        if (window.scrollY > 600) {
+
+            backToTop.classList.add("show");
+
+        } else {
+
+            backToTop.classList.remove("show");
+
+        }
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        handleBackToTop,
+        { passive: true }
+    );
+
+
+    if (backToTop) {
+
+        backToTop.addEventListener(
+            "click",
+            () => {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+    }
+
 
 
     /* =====================================================
        ACTIVE NAVIGATION
-    ===================================================== */
+       ===================================================== */
 
     const sections =
         document.querySelectorAll("section[id]");
 
-    const navigationLinks =
-        document.querySelectorAll("nav a[href^='#']");
+
+    function updateActiveNavigation() {
+
+        let currentSection = "";
+
+
+        sections.forEach(section => {
+
+            const sectionTop =
+                section.offsetTop - 150;
+
+            const sectionHeight =
+                section.offsetHeight;
+
+
+            if (
+                window.scrollY >= sectionTop &&
+                window.scrollY <
+                sectionTop + sectionHeight
+            ) {
+
+                currentSection =
+                    section.getAttribute("id");
+
+            }
+
+        });
+
+
+        navLinks.forEach(link => {
+
+            link.classList.remove("active");
+
+            const href =
+                link.getAttribute("href");
+
+
+            if (
+                currentSection &&
+                href === `#${currentSection}`
+            ) {
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateActiveNavigation,
+        { passive: true }
+    );
+
+
+
+    /* =====================================================
+       SCROLL REVEAL ANIMATION
+       ===================================================== */
+
+    const animatedElements =
+        document.querySelectorAll(
+            ".section-heading, " +
+            ".service-card, " +
+            ".project-card, " +
+            ".graphic-card, " +
+            ".skill-card, " +
+            ".certificate-card, " +
+            ".contact-item, " +
+            ".stat-card"
+        );
+
 
     if (
-        sections.length > 0 &&
-        navigationLinks.length > 0
+        "IntersectionObserver" in window
     ) {
 
-        const activeObserver =
+        const observer =
             new IntersectionObserver(
                 entries => {
 
                     entries.forEach(entry => {
 
-                        if (entry.isIntersecting) {
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-                            navigationLinks.forEach(link => {
-                                link.classList.remove("active");
-                            });
+                            entry.target.classList.add(
+                                "visible"
+                            );
 
-                            const activeLink =
-                                document.querySelector(
-                                    `nav a[href="#${entry.target.id}"]`
-                                );
-
-                            if (activeLink) {
-                                activeLink.classList.add("active");
-                            }
+                            observer.unobserve(
+                                entry.target
+                            );
 
                         }
 
@@ -478,81 +587,209 @@ Please contact me regarding this project.`;
 
                 },
                 {
-                    rootMargin: "-30% 0px -60% 0px"
+                    threshold: 0.12
                 }
             );
 
-        sections.forEach(section => {
-            activeObserver.observe(section);
-        });
+
+        animatedElements.forEach(
+            element => {
+
+                element.style.opacity = "0";
+
+                element.style.transform =
+                    "translateY(25px)";
+
+                element.style.transition =
+                    "opacity 0.65s ease, transform 0.65s ease";
+
+                observer.observe(element);
+
+            }
+        );
 
     }
 
 
+
     /* =====================================================
-       PROJECT CARD HOVER TILT
-    ===================================================== */
+       ADD VISIBLE CLASS STYLE
+       ===================================================== */
 
-    const cards =
-        document.querySelectorAll(
-            ".project-card, .graphic-card"
+    const revealStyle =
+        document.createElement("style");
+
+
+    revealStyle.textContent = `
+
+        .visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        nav a.active {
+            color: #ffffff !important;
+        }
+
+        nav a.active::after {
+            width: 100% !important;
+        }
+
+    `;
+
+
+    document.head.appendChild(
+        revealStyle
+    );
+
+
+
+    /* =====================================================
+       WHATSAPP BUTTON
+       
+       IMPORTANT:
+       Replace the number below with your actual
+       WhatsApp number if it is not already in HTML.
+       
+       Pakistan format:
+       923XXXXXXXXX
+       ===================================================== */
+
+    const whatsappNumber =
+        "923XXXXXXXXX";
+
+
+    document.querySelectorAll(
+        "[data-whatsapp]"
+    ).forEach(button => {
+
+        button.addEventListener(
+            "click",
+            event => {
+
+                event.preventDefault();
+
+                const service =
+                    button.dataset.whatsapp ||
+                    "Website Inquiry";
+
+
+                const message =
+                    `Hello GMM Social Growth,%0A%0A` +
+                    `I am interested in: ${service}%0A%0A` +
+                    `Please share more details.`;
+
+
+                window.open(
+                    `https://wa.me/${whatsappNumber}?text=${message}`,
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+
+            }
         );
-
-    cards.forEach(card => {
-
-        card.addEventListener("mousemove", event => {
-
-            if (window.innerWidth < 768) return;
-
-            const rect =
-                card.getBoundingClientRect();
-
-            const x =
-                event.clientX - rect.left;
-
-            const y =
-                event.clientY - rect.top;
-
-            const centerX =
-                rect.width / 2;
-
-            const centerY =
-                rect.height / 2;
-
-            const rotateX =
-                ((y - centerY) / centerY) * -2;
-
-            const rotateY =
-                ((x - centerX) / centerX) * 2;
-
-            card.style.transform =
-                `perspective(800px)
-                 rotateX(${rotateX}deg)
-                 rotateY(${rotateY}deg)
-                 translateY(-5px)`;
-
-        });
-
-        card.addEventListener("mouseleave", () => {
-
-            card.style.transform = "";
-
-        });
 
     });
 
 
+
     /* =====================================================
-       CONSOLE MESSAGE
-    ===================================================== */
+       SERVICE ORDER BUTTONS
+       
+       Example HTML:
+       
+       <button data-service="Social Media Marketing">
+          Order Service
+       </button>
+       ===================================================== */
 
-    console.log(
-        "%cGMM Social Growth Portfolio",
-        "font-size:20px;font-weight:bold;color:#9e1f43;"
+    document.querySelectorAll(
+        "[data-service]"
+    ).forEach(button => {
+
+        button.addEventListener(
+            "click",
+            event => {
+
+                event.preventDefault();
+
+
+                const service =
+                    button.dataset.service;
+
+
+                const message =
+                    `Hello GMM Social Growth,%0A%0A` +
+                    `I want to order this service:%0A` +
+                    `${service}%0A%0A` +
+                    `Please contact me with the details.`;
+
+
+                window.open(
+                    `https://wa.me/${whatsappNumber}?text=${message}`,
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+
+            }
+        );
+
+    });
+
+
+
+    /* =====================================================
+       IMAGE ERROR HANDLING
+       
+       Prevents broken images from destroying layout.
+       ===================================================== */
+
+    document.querySelectorAll("img")
+        .forEach(img => {
+
+            img.addEventListener(
+                "error",
+                () => {
+
+                    img.classList.add(
+                        "image-error"
+                    );
+
+                }
+            );
+
+        });
+
+
+
+    /* =====================================================
+       LAZY LOADING
+       ===================================================== */
+
+    document.querySelectorAll(
+        "img:not([loading])"
+    ).forEach(img => {
+
+        img.setAttribute(
+            "loading",
+            "lazy"
+        );
+
+    });
+
+
+
+    /* =====================================================
+       PAGE LOADED
+       ===================================================== */
+
+    document.body.classList.add(
+        "page-loaded"
     );
 
-    console.log(
-        "Website loaded successfully."
-    );
+
+    updateActiveNavigation();
+
+    handleBackToTop();
 
 });
