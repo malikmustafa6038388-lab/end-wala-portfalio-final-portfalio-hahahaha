@@ -1,479 +1,565 @@
 /* =========================================================
-   GMM SOCIAL GROWTH — PREMIUM PORTFOLIO
-   script.js
-   ========================================================= */
-
-
-/* =========================================================
-   DOM READY
+   GMM SOCIAL GROWTH
+   PREMIUM PORTFOLIO — FINAL JAVASCRIPT
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* -----------------------------------------------------
-       ELEMENTS
-    ----------------------------------------------------- */
+    /* =====================================================
+       PROJECT DATA
+       Exact filenames provided by you
+       ===================================================== */
 
-    const menuToggle = document.querySelector(".menu-toggle");
-    const nav = document.querySelector("nav");
+    const projects = [
 
-    const backToTop = document.querySelector(".back-to-top");
+        {
+            name: "Bags",
+            category: "Fashion / E-Commerce",
+            thumbnail: "bags-thumbnail.png",
+            screenshots: [
+                "bags-1.png",
+                "bags-2.png",
+                "bags-3.png",
+                "bags-4.png",
+                "bags-5.png"
+            ]
+        },
 
-    const lightbox = document.querySelector(".lightbox");
-    const lightboxClose = document.querySelector(".lightbox-close");
+        {
+            name: "Beauty",
+            category: "Beauty / E-Commerce",
+            thumbnail: "beauty-thumbnail.png",
+            screenshots: [
+                "beauty-1.png",
+                "beauty-2.png",
+                "beauty-3.png",
+                "beauty-4.png",
+                "beauty-5.png",
+                "beauty-6.png"
+            ]
+        },
 
-    const lightboxTitle =
-        document.querySelector(".lightbox-content h2");
+        {
+            name: "Clothing",
+            category: "Fashion / E-Commerce",
+            thumbnail: "clothing-thumbnail.png",
+            screenshots: [
+                "clothing-1.png",
+                "clothing-2.png",
+                "clothing-3.png",
+                "clothing-4.png",
+                "clothing-5.png"
+            ]
+        },
 
-    const lightboxGallery =
-        document.querySelector(".lightbox-gallery");
+        {
+            name: "Glow",
+            category: "Beauty / E-Commerce",
+            thumbnail: "glow-thumbnail.png",
+            screenshots: [
+                "glow-1.png",
+                "glow-2.png",
+                "glow-3.png",
+                "glow-4.png",
+                "glow-5.png"
+            ]
+        },
 
-    const navLinks =
-        document.querySelectorAll("nav a");
+        {
+            name: "Jewellery",
+            category: "Jewellery / E-Commerce",
+            thumbnail: "jewellery-thumbnail.png",
+            screenshots: [
+                "jewellery-1.png",
+                "jewellery-2.png",
+                "jewellery-3.png",
+                "jewellery-4.png",
+                "jewellery-5.png",
+                "jewellery-6.png"
+            ]
+        },
 
-    const projectCards =
-        document.querySelectorAll(".project-card");
+        {
+            name: "Mobile Electronics",
+            category: "Electronics / E-Commerce",
+            thumbnail: "mobile-electronics-thumbnail.png",
+            screenshots: [
+                "mobile-electronics-1.png",
+                "mobile-electronics-2.png",
+                "mobile-electronics-3.png",
+                "mobile-electronics-4.png",
+                "mobile-electronics-5.png",
+                "mobile-electronics-6.png"
+            ]
+        },
 
-    const graphicCards =
-        document.querySelectorAll(".graphic-card");
+        {
+            name: "Shoes",
+            category: "Fashion / E-Commerce",
+            thumbnail: "shoes-thumbnail.png",
+            screenshots: [
+                "shoes-1.png",
+                "shoes-2.png",
+                "shoes-3.png",
+                "shoes-4.png"
+            ]
+        },
 
+        {
+            name: "Skincare",
+            category: "Beauty / E-Commerce",
+            thumbnail: "skincare-thumbnail.png",
+            screenshots: [
+                "skincare-1.png",
+                "skincare-2.png",
+                "skincare-3.png",
+                "skincare-4.png",
+                "skincare-5.png",
+                "skincare-6.png"
+            ]
+        },
+
+        {
+            name: "Watches",
+            category: "Fashion / E-Commerce",
+            thumbnail: "watches-thumbnail.png",
+            screenshots: [
+                "watches-1.png",
+                "watches-2.png",
+                "watches-3.png",
+                "watches-4.png"
+            ]
+        },
+
+        {
+            name: "Fashion",
+            category: "Fashion / E-Commerce",
+            thumbnail: "fashion-thumbnail.png",
+            screenshots: [
+                "fashion-1.png",
+                "fashion-2.png",
+                "fashion-3.png",
+                "fashion-4.png",
+                "fashion-5.png",
+                "fashion-6.png",
+                "fashion-7.png"
+            ]
+        },
+
+        {
+            name: "E-Commerce",
+            category: "E-Commerce Website",
+            thumbnail: "ecommerce-thumbnail.png",
+            screenshots: [
+                "ecommerce-1.png",
+                "ecommerce-2.png",
+                "ecommerce-3.png",
+                "ecommerce-4.png",
+                "ecommerce-5.png"
+            ]
+        },
+
+        {
+            name: "UAE E-Commerce",
+            category: "E-Commerce Website",
+            thumbnail: "uae-ecommerce-thumbnail.png",
+            screenshots: [
+                "uae-ecommerce-1.png",
+                "uae-ecommerce-2.png",
+                "uae-ecommerce-3.png",
+                "uae-ecommerce-4.png",
+                "uae-ecommerce-5.png"
+            ]
+        }
+
+    ];
 
 
     /* =====================================================
-       MOBILE MENU
+       FIND PROJECT CONTAINER
        ===================================================== */
 
-    if (menuToggle && nav) {
-
-        menuToggle.addEventListener("click", () => {
-
-            nav.classList.toggle("active");
-
-            const isOpen =
-                nav.classList.contains("active");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                isOpen ? "true" : "false"
-            );
-
-        });
+    const projectGrid =
+        document.querySelector(".project-grid");
 
 
-        /* Close menu after clicking a link */
+    /* =====================================================
+       CREATE PROJECT CARDS
+       ===================================================== */
 
-        navLinks.forEach(link => {
+    if (projectGrid) {
 
-            link.addEventListener("click", () => {
+        projectGrid.innerHTML = "";
 
-                nav.classList.remove("active");
+        projects.forEach((project, index) => {
 
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
+            const card =
+                document.createElement("article");
 
-            });
+            card.className =
+                "project-card";
+
+            card.dataset.project =
+                index;
+
+
+            card.innerHTML = `
+
+                <div class="project-image">
+
+                    <img
+                        src="${project.thumbnail}"
+                        alt="${project.name} Project"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="project-info">
+
+                    <span class="project-category">
+                        ${project.category}
+                    </span>
+
+                    <h3>
+                        ${project.name}
+                    </h3>
+
+                    <p>
+                        Professional project design
+                        and digital experience.
+                    </p>
+
+                    <button
+                        class="view-project"
+                        type="button"
+                        data-project-index="${index}"
+                    >
+
+                        View Project
+
+                        <span aria-hidden="true">
+                            →
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="project-screenshots"
+                    aria-label="${project.name} screenshots"
+                >
+
+                    ${project.screenshots.map(
+                        (image, imageIndex) => `
+
+                        <img
+                            src="${image}"
+                            alt="${project.name} Screenshot ${imageIndex + 1}"
+                            loading="lazy"
+                            data-project-index="${index}"
+                            data-image-index="${imageIndex}"
+                        >
+
+                    `
+                    ).join("")}
+
+                </div>
+
+            `;
+
+
+            projectGrid.appendChild(card);
 
         });
 
     }
 
 
-
     /* =====================================================
-       SMOOTH SCROLL
+       LIGHTBOX ELEMENTS
        ===================================================== */
 
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-
-        link.addEventListener("click", function (event) {
-
-            const targetId =
-                this.getAttribute("href");
-
-            if (
-                !targetId ||
-                targetId === "#"
-            ) {
-                return;
-            }
-
-            const target =
-                document.querySelector(targetId);
-
-            if (!target) {
-                return;
-            }
-
-            event.preventDefault();
-
-            const header =
-                document.querySelector("header");
-
-            const headerHeight =
-                header ? header.offsetHeight : 0;
-
-            const targetPosition =
-                target.getBoundingClientRect().top +
-                window.pageYOffset -
-                headerHeight +
-                5;
-
-            window.scrollTo({
-                top: targetPosition,
-                behavior: "smooth"
-            });
-
-        });
-
-    });
+    let lightbox =
+        document.querySelector(".lightbox");
 
 
+    /*
+       اگر HTML میں lightbox پہلے سے نہیں ہے
+       تو JS خود بنا دے گی۔
+    */
 
-    /* =====================================================
-       PROJECT IMAGE GALLERY
-       
-       IMPORTANT:
-       Project card can contain:
-       
-       data-project="fashion"
-       data-title="Fashion Store"
+    if (!lightbox) {
 
-       Gallery images can use:
-       
-       data-gallery="fashion"
-       data-image="projects/fashion-1.png"
+        lightbox =
+            document.createElement("div");
 
-       If images are uploaded separately on GitHub,
-       this system can use the exact filenames.
-       ===================================================== */
+        lightbox.className =
+            "lightbox";
+
+        lightbox.innerHTML = `
+
+            <button
+                class="lightbox-close"
+                type="button"
+                aria-label="Close project"
+            >
+                ×
+            </button>
+
+            <div class="lightbox-content">
+
+                <h2 class="lightbox-title">
+                    Project
+                </h2>
+
+                <div class="lightbox-gallery"></div>
+
+            </div>
+
+        `;
+
+        document.body.appendChild(lightbox);
+
+    }
 
 
-    const projectGalleryData = {
+    const closeButton =
+        lightbox.querySelector(".lightbox-close");
 
-        fashion: [
-            "fashion-1.png",
-            "fashion-2.png",
-            "fashion-3.png"
-        ],
+    const lightboxTitle =
+        lightbox.querySelector(".lightbox-title");
 
-        bags: [
-            "bags-1.png",
-            "bags-2.png",
-            "bags-3.png"
-        ],
-
-        beauty: [
-            "beauty-1.png",
-            "beauty-2.png",
-            "beauty-3.png"
-        ],
-
-        ecommerce: [
-            "ecommerce-1.png",
-            "ecommerce-2.png",
-            "ecommerce-3.png"
-        ],
-
-        "uae-ecommerce": [
-            "uae-ecommerce-1.png",
-            "uae-ecommerce-2.png",
-            "uae-ecommerce-3.png"
-        ]
-
-    };
-
+    const lightboxGallery =
+        lightbox.querySelector(".lightbox-gallery");
 
 
     /* =====================================================
-       OPEN PROJECT
+       OPEN PROJECT LIGHTBOX
        ===================================================== */
 
-    function openProjectGallery(
-        projectName,
-        projectTitle
-    ) {
+    function openProject(index) {
 
-        if (!lightbox || !lightboxGallery) {
-            return;
-        }
+        const project =
+            projects[index];
+
+        if (!project) return;
 
 
-        const images =
-            projectGalleryData[projectName];
+        lightboxTitle.textContent =
+            project.name;
 
 
-        if (!images || images.length === 0) {
+        lightboxGallery.innerHTML = "";
 
-            lightboxGallery.innerHTML = `
-                <div style="
-                    grid-column:1/-1;
-                    text-align:center;
-                    padding:50px 20px;
-                    color:#aaa;
-                ">
-                    Project images will be added soon.
-                </div>
-            `;
 
-        } else {
-
-            lightboxGallery.innerHTML = "";
-
-            images.forEach((imageName, index) => {
+        project.screenshots.forEach(
+            (image, imageIndex) => {
 
                 const img =
                     document.createElement("img");
 
                 img.src =
-                    imageName;
+                    image;
 
                 img.alt =
-                    `${projectTitle} screenshot ${index + 1}`;
+                    `${project.name} Screenshot ${imageIndex + 1}`;
 
-                img.loading = "lazy";
-
-                img.onerror = function () {
-
-                    this.style.display = "none";
-
-                };
+                img.loading =
+                    "lazy";
 
                 lightboxGallery.appendChild(img);
 
-            });
-
-        }
-
-
-        if (lightboxTitle) {
-
-            lightboxTitle.textContent =
-                projectTitle || "Project";
-
-        }
+            }
+        );
 
 
         lightbox.classList.add("active");
 
-        document.body.style.overflow = "hidden";
+        document.body.style.overflow =
+            "hidden";
 
     }
-
-
-
-    /* =====================================================
-       PROJECT BUTTONS
-       ===================================================== */
-
-    projectCards.forEach(card => {
-
-        const button =
-            card.querySelector(".view-project");
-
-        if (!button) {
-            return;
-        }
-
-
-        button.addEventListener("click", () => {
-
-            const projectName =
-                card.dataset.project;
-
-            const projectTitle =
-                card.dataset.title ||
-                card.querySelector("h3")?.textContent ||
-                "Project";
-
-            openProjectGallery(
-                projectName,
-                projectTitle
-            );
-
-        });
-
-    });
-
-
-
-    /* =====================================================
-       GRAPHIC DESIGN GALLERY
-       
-       Graphic cards normally show ONE thumbnail.
-       Clicking it opens the image.
-       ===================================================== */
-
-    graphicCards.forEach(card => {
-
-        card.addEventListener("click", () => {
-
-            const image =
-                card.querySelector("img");
-
-            if (!image) {
-                return;
-            }
-
-
-            if (!lightbox || !lightboxGallery) {
-                return;
-            }
-
-
-            lightboxGallery.innerHTML = "";
-
-
-            const img =
-                document.createElement("img");
-
-            img.src =
-                image.src;
-
-            img.alt =
-                image.alt ||
-                "Graphic Design";
-
-            img.style.gridColumn =
-                "1 / -1";
-
-            lightboxGallery.appendChild(img);
-
-
-            if (lightboxTitle) {
-
-                lightboxTitle.textContent =
-                    card.dataset.title ||
-                    "Graphic Design";
-
-            }
-
-
-            lightbox.classList.add("active");
-
-            document.body.style.overflow =
-                "hidden";
-
-        });
-
-    });
-
 
 
     /* =====================================================
        CLOSE LIGHTBOX
        ===================================================== */
 
-    function closeLightbox() {
+    function closeProject() {
 
-        if (!lightbox) {
-            return;
-        }
-
-        lightbox.classList.remove("active");
-
-        document.body.style.overflow = "";
-
-    }
-
-
-    if (lightboxClose) {
-
-        lightboxClose.addEventListener(
-            "click",
-            closeLightbox
+        lightbox.classList.remove(
+            "active"
         );
 
-    }
-
-
-    /* Close by clicking outside */
-
-    if (lightbox) {
-
-        lightbox.addEventListener(
-            "click",
-            event => {
-
-                if (
-                    event.target === lightbox
-                ) {
-
-                    closeLightbox();
-
-                }
-
-            }
-        );
+        document.body.style.overflow =
+            "";
 
     }
-
-
-    /* Close with ESC */
-
-    document.addEventListener(
-        "keydown",
-        event => {
-
-            if (event.key === "Escape") {
-
-                closeLightbox();
-
-            }
-
-        }
-    );
-
 
 
     /* =====================================================
-       BACK TO TOP
+       PROJECT CLICK
        ===================================================== */
 
-    function handleBackToTop() {
+    document.addEventListener(
+        "click",
+        (event) => {
 
-        if (!backToTop) {
-            return;
+            const button =
+                event.target.closest(
+                    ".view-project"
+                );
+
+
+            if (button) {
+
+                const index =
+                    Number(
+                        button.dataset.projectIndex
+                    );
+
+                openProject(index);
+
+                return;
+
+            }
+
+
+            const screenshot =
+                event.target.closest(
+                    ".project-screenshots img"
+                );
+
+
+            if (screenshot) {
+
+                const index =
+                    Number(
+                        screenshot.dataset.projectIndex
+                    );
+
+                openProject(index);
+
+            }
+
         }
-
-
-        if (window.scrollY > 600) {
-
-            backToTop.classList.add("show");
-
-        } else {
-
-            backToTop.classList.remove("show");
-
-        }
-
-    }
-
-
-    window.addEventListener(
-        "scroll",
-        handleBackToTop,
-        { passive: true }
     );
 
 
-    if (backToTop) {
+    /* =====================================================
+       CLOSE BUTTON
+       ===================================================== */
 
-        backToTop.addEventListener(
+    if (closeButton) {
+
+        closeButton.addEventListener(
             "click",
-            () => {
-
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-
-            }
+            closeProject
         );
 
     }
 
+
+    /* =====================================================
+       CLICK OUTSIDE LIGHTBOX
+       ===================================================== */
+
+    lightbox.addEventListener(
+        "click",
+        (event) => {
+
+            if (
+                event.target === lightbox
+            ) {
+
+                closeProject();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       ESC KEY
+       ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        (event) => {
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                closeProject();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       MOBILE MENU
+       ===================================================== */
+
+    const menuToggle =
+        document.querySelector(
+            ".menu-toggle"
+        );
+
+    const navigation =
+        document.querySelector("nav");
+
+
+    if (
+        menuToggle &&
+        navigation
+    ) {
+
+        menuToggle.addEventListener(
+            "click",
+            () => {
+
+                navigation.classList.toggle(
+                    "active"
+                );
+
+                menuToggle.classList.toggle(
+                    "active"
+                );
+
+            }
+        );
+
+
+        navigation
+            .querySelectorAll("a")
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    () => {
+
+                        navigation.classList.remove(
+                            "active"
+                        );
+
+                        menuToggle.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+            });
+
+    }
 
 
     /* =====================================================
@@ -481,30 +567,32 @@ document.addEventListener("DOMContentLoaded", () => {
        ===================================================== */
 
     const sections =
-        document.querySelectorAll("section[id]");
+        document.querySelectorAll(
+            "section[id]"
+        );
+
+    const navLinks =
+        document.querySelectorAll(
+            'nav a[href^="#"]'
+        );
 
 
-    function updateActiveNavigation() {
+    function updateActiveNav() {
 
-        let currentSection = "";
-
+        let current =
+            "";
 
         sections.forEach(section => {
 
             const sectionTop =
-                section.offsetTop - 150;
-
-            const sectionHeight =
-                section.offsetHeight;
-
+                section.offsetTop - 160;
 
             if (
-                window.scrollY >= sectionTop &&
-                window.scrollY <
-                sectionTop + sectionHeight
+                window.scrollY >=
+                sectionTop
             ) {
 
-                currentSection =
+                current =
                     section.getAttribute("id");
 
             }
@@ -514,18 +602,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         navLinks.forEach(link => {
 
-            link.classList.remove("active");
+            link.classList.remove(
+                "active"
+            );
+
 
             const href =
                 link.getAttribute("href");
 
 
             if (
-                currentSection &&
-                href === `#${currentSection}`
+                href === `#${current}`
             ) {
 
-                link.classList.add("active");
+                link.classList.add(
+                    "active"
+                );
 
             }
 
@@ -536,224 +628,137 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener(
         "scroll",
-        updateActiveNavigation,
-        { passive: true }
+        updateActiveNav,
+        {
+            passive: true
+        }
     );
 
 
+    updateActiveNav();
+
 
     /* =====================================================
-       SCROLL REVEAL ANIMATION
+       BACK TO TOP
        ===================================================== */
 
-    const animatedElements =
-        document.querySelectorAll(
-            ".section-heading, " +
-            ".service-card, " +
-            ".project-card, " +
-            ".graphic-card, " +
-            ".skill-card, " +
-            ".certificate-card, " +
-            ".contact-item, " +
-            ".stat-card"
+    let backToTop =
+        document.querySelector(
+            ".back-to-top"
         );
 
 
-    if (
-        "IntersectionObserver" in window
-    ) {
+    if (!backToTop) {
 
-        const observer =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(entry => {
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-                            entry.target.classList.add(
-                                "visible"
-                            );
-
-                            observer.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: 0.12
-                }
+        backToTop =
+            document.createElement(
+                "button"
             );
 
+        backToTop.className =
+            "back-to-top";
 
-        animatedElements.forEach(
-            element => {
+        backToTop.type =
+            "button";
 
-                element.style.opacity = "0";
+        backToTop.innerHTML =
+            "↑";
 
-                element.style.transform =
-                    "translateY(25px)";
+        backToTop.setAttribute(
+            "aria-label",
+            "Back to top"
+        );
 
-                element.style.transition =
-                    "opacity 0.65s ease, transform 0.65s ease";
-
-                observer.observe(element);
-
-            }
+        document.body.appendChild(
+            backToTop
         );
 
     }
 
 
+    window.addEventListener(
+        "scroll",
+        () => {
 
-    /* =====================================================
-       ADD VISIBLE CLASS STYLE
-       ===================================================== */
+            if (
+                window.scrollY > 600
+            ) {
 
-    const revealStyle =
-        document.createElement("style");
+                backToTop.classList.add(
+                    "show"
+                );
 
+            } else {
 
-    revealStyle.textContent = `
+                backToTop.classList.remove(
+                    "show"
+                );
 
-        .visible {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
+            }
+
+        },
+        {
+            passive: true
         }
-
-        nav a.active {
-            color: #ffffff !important;
-        }
-
-        nav a.active::after {
-            width: 100% !important;
-        }
-
-    `;
-
-
-    document.head.appendChild(
-        revealStyle
     );
 
 
+    backToTop.addEventListener(
+        "click",
+        () => {
 
-    /* =====================================================
-       WHATSAPP BUTTON
-       
-       IMPORTANT:
-       Replace the number below with your actual
-       WhatsApp number if it is not already in HTML.
-       
-       Pakistan format:
-       923XXXXXXXXX
-       ===================================================== */
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
 
-    const whatsappNumber =
-        "923XXXXXXXXX";
-
-
-    document.querySelectorAll(
-        "[data-whatsapp]"
-    ).forEach(button => {
-
-        button.addEventListener(
-            "click",
-            event => {
-
-                event.preventDefault();
-
-                const service =
-                    button.dataset.whatsapp ||
-                    "Website Inquiry";
-
-
-                const message =
-                    `Hello GMM Social Growth,%0A%0A` +
-                    `I am interested in: ${service}%0A%0A` +
-                    `Please share more details.`;
-
-
-                window.open(
-                    `https://wa.me/${whatsappNumber}?text=${message}`,
-                    "_blank",
-                    "noopener,noreferrer"
-                );
-
-            }
-        );
-
-    });
-
+        }
+    );
 
 
     /* =====================================================
-       SERVICE ORDER BUTTONS
-       
-       Example HTML:
-       
-       <button data-service="Social Media Marketing">
-          Order Service
-       </button>
+       SMOOTH ANCHOR SCROLL
        ===================================================== */
 
-    document.querySelectorAll(
-        "[data-service]"
-    ).forEach(button => {
+    document
+        .querySelectorAll(
+            'a[href^="#"]'
+        )
+        .forEach(anchor => {
 
-        button.addEventListener(
-            "click",
-            event => {
+            anchor.addEventListener(
+                "click",
+                function(event) {
 
-                event.preventDefault();
+                    const targetId =
+                        this.getAttribute(
+                            "href"
+                        );
 
-
-                const service =
-                    button.dataset.service;
-
-
-                const message =
-                    `Hello GMM Social Growth,%0A%0A` +
-                    `I want to order this service:%0A` +
-                    `${service}%0A%0A` +
-                    `Please contact me with the details.`;
-
-
-                window.open(
-                    `https://wa.me/${whatsappNumber}?text=${message}`,
-                    "_blank",
-                    "noopener,noreferrer"
-                );
-
-            }
-        );
-
-    });
+                    if (
+                        !targetId ||
+                        targetId === "#"
+                    ) {
+                        return;
+                    }
 
 
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
 
-    /* =====================================================
-       IMAGE ERROR HANDLING
-       
-       Prevents broken images from destroying layout.
-       ===================================================== */
 
-    document.querySelectorAll("img")
-        .forEach(img => {
+                    if (target) {
 
-            img.addEventListener(
-                "error",
-                () => {
+                        event.preventDefault();
 
-                    img.classList.add(
-                        "image-error"
-                    );
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+
+                    }
 
                 }
             );
@@ -761,35 +766,89 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
-
     /* =====================================================
-       LAZY LOADING
+       IMAGE ERROR HANDLING
        ===================================================== */
 
-    document.querySelectorAll(
-        "img:not([loading])"
-    ).forEach(img => {
+    document.addEventListener(
+        "error",
+        (event) => {
 
-        img.setAttribute(
-            "loading",
-            "lazy"
+            if (
+                event.target.tagName ===
+                "IMG"
+            ) {
+
+                event.target.classList.add(
+                    "image-error"
+                );
+
+                console.warn(
+                    "Image not found:",
+                    event.target.src
+                );
+
+            }
+
+        },
+        true
+    );
+
+
+    /* =====================================================
+       PROJECT IMAGE PRELOAD
+       ===================================================== */
+
+    /*
+       Screenshots کو background میں preload
+       کیا جاتا ہے تاکہ lightbox کھولنے پر
+       loading کم ہو۔
+    */
+
+    projects.forEach(project => {
+
+        project.screenshots.forEach(
+            image => {
+
+                const preload =
+                    new Image();
+
+                preload.src =
+                    image;
+
+            }
         );
 
     });
 
 
-
     /* =====================================================
-       PAGE LOADED
+       CURRENT YEAR
        ===================================================== */
 
-    document.body.classList.add(
-        "page-loaded"
+    const year =
+        document.querySelector(
+            "#currentYear"
+        );
+
+    if (year) {
+
+        year.textContent =
+            new Date().getFullYear();
+
+    }
+
+
+    /* =====================================================
+       CONSOLE MESSAGE
+       ===================================================== */
+
+    console.log(
+        "GMM Social Growth Portfolio loaded successfully."
     );
 
-
-    updateActiveNavigation();
-
-    handleBackToTop();
+    console.log(
+        `${projects.length} projects loaded.`
+    );
 
 });
