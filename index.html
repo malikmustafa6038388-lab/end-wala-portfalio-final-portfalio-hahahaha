@@ -1,2533 +1,3665 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="GMM Social Growth — Professional Digital Marketing, E-Commerce, Graphic Design and Social Media Portfolio."
-    >
+    <meta name="description"
+          content="GMM Social Growth - Digital Marketing, Shopify Store Design, SEO, Graphic Design, Video Editing and Social Media Marketing Portfolio.">
 
-    <meta
-        name="author"
-        content="GMM Social Growth"
-    >
+    <meta name="keywords"
+          content="GMM Social Growth, Digital Marketing, Shopify, SEO, Meta Ads, TikTok Ads, Graphic Design, Video Editing">
 
-    <meta
-        name="theme-color"
-        content="#050505"
-    >
+    <meta name="author"
+          content="GMM Social Growth">
 
-    <title>
-        GMM Social Growth | Digital Marketing Portfolio
-    </title>
+    <title>GMM Social Growth | Digital Marketing Portfolio</title>
 
     <!-- FAVICON -->
-    <link
-        rel="icon"
-        type="image/png"
-        href="logo.png"
-    >
+    <link rel="icon" type="image/png" href="assets/logo1.png">
 
     <!-- GOOGLE FONT -->
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- ICONS -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
+    <style>
 
-    <!-- MAIN CSS -->
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+        /* =========================================================
+           ROOT
+        ========================================================= */
 
+        :root {
+            --bg: #030712;
+            --bg-soft: #07111f;
+            --card: rgba(10, 20, 36, 0.82);
+
+            --blue: #38bdf8;
+            --blue-dark: #0ea5e9;
+
+            --gold: #f5c451;
+            --gold-light: #ffe08a;
+
+            --white: #ffffff;
+            --text: #e5e7eb;
+            --muted: #94a3b8;
+
+            --border: rgba(56, 189, 248, 0.20);
+
+            --shadow:
+                0 20px 70px rgba(0, 0, 0, 0.45);
+
+            --radius: 24px;
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background:
+                radial-gradient(
+                    circle at 20% 10%,
+                    rgba(14, 165, 233, 0.08),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(245, 196, 81, 0.06),
+                    transparent 25%
+                ),
+                var(--bg);
+
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+
+        /* =========================================================
+           GALAXY BACKGROUND
+        ========================================================= */
+
+        .galaxy {
+            position: fixed;
+            inset: 0;
+            z-index: -20;
+            overflow: hidden;
+            pointer-events: none;
+
+            background:
+                radial-gradient(
+                    circle at 50% 30%,
+                    rgba(14, 165, 233, 0.08),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 20% 70%,
+                    rgba(99, 102, 241, 0.06),
+                    transparent 30%
+                ),
+                #020617;
+        }
+
+        .galaxy::before,
+        .galaxy::after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 2px;
+
+            background: white;
+
+            box-shadow:
+                20px 80px white,
+                80px 150px rgba(255,255,255,.6),
+                140px 40px rgba(255,255,255,.5),
+                210px 220px white,
+                280px 90px rgba(255,255,255,.7),
+                350px 310px white,
+                420px 170px rgba(255,255,255,.6),
+                490px 60px white,
+                550px 260px rgba(255,255,255,.5),
+                620px 120px white,
+                700px 330px rgba(255,255,255,.6),
+                760px 190px white,
+                840px 70px rgba(255,255,255,.5),
+                920px 280px white,
+                1000px 150px rgba(255,255,255,.6),
+                1080px 350px white,
+                1160px 90px rgba(255,255,255,.5),
+                1240px 240px white,
+                1320px 130px rgba(255,255,255,.6),
+                1400px 310px white,
+                1480px 60px rgba(255,255,255,.5);
+
+            animation: galaxyMove 25s linear infinite;
+        }
+
+        .galaxy::after {
+            transform: translateY(500px);
+            opacity: .6;
+            animation-duration: 35s;
+        }
+
+        @keyframes galaxyMove {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-500px);
+            }
+        }
+
+
+        /* =========================================================
+           EXTRA FLOATING PARTICLES
+        ========================================================= */
+
+        .particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -10;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.65);
+
+            box-shadow:
+                0 0 12px rgba(56,189,248,.7);
+
+            animation: floatParticle linear infinite;
+        }
+
+        .particle:nth-child(1) {
+            left: 8%;
+            top: 30%;
+            animation-duration: 12s;
+        }
+
+        .particle:nth-child(2) {
+            left: 18%;
+            top: 70%;
+            animation-duration: 18s;
+        }
+
+        .particle:nth-child(3) {
+            left: 30%;
+            top: 20%;
+            animation-duration: 14s;
+        }
+
+        .particle:nth-child(4) {
+            left: 44%;
+            top: 60%;
+            animation-duration: 17s;
+        }
+
+        .particle:nth-child(5) {
+            left: 55%;
+            top: 25%;
+            animation-duration: 13s;
+        }
+
+        .particle:nth-child(6) {
+            left: 67%;
+            top: 75%;
+            animation-duration: 20s;
+        }
+
+        .particle:nth-child(7) {
+            left: 78%;
+            top: 35%;
+            animation-duration: 15s;
+        }
+
+        .particle:nth-child(8) {
+            left: 90%;
+            top: 65%;
+            animation-duration: 19s;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform:
+                    translate3d(0, 80px, 0)
+                    scale(.6);
+
+                opacity: 0;
+            }
+
+            30% {
+                opacity: 1;
+            }
+
+            70% {
+                opacity: .7;
+            }
+
+            100% {
+                transform:
+                    translate3d(70px, -180px, 0)
+                    scale(1.2);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================================================
+           CONTAINER
+        ========================================================= */
+
+        .container {
+            width: min(1200px, 92%);
+            margin: auto;
+        }
+
+
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            z-index: 1000;
+
+            background:
+                rgba(2, 6, 23, .72);
+
+            backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid rgba(255,255,255,.06);
+        }
+
+        .nav {
+            min-height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand img {
+            width: 58px;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            padding: 11px 18px;
+
+            border-radius: 999px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--gold),
+                    var(--gold-light)
+                );
+
+            color: #111827 !important;
+
+            box-shadow:
+                0 0 25px rgba(245,196,81,.18);
+        }
+
+        .menu-btn {
+            display: none;
+
+            border: 0;
+            background: transparent;
+
+            color: white;
+
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding-top: 120px;
+        }
+
+        .hero-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.15fr
+                .85fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+
+            align-items: center;
+            gap: 8px;
+
+            padding: 8px 14px;
+
+            border: 1px solid var(--border);
+
+            background:
+                rgba(56,189,248,.07);
+
+            border-radius: 999px;
+
+            color: var(--blue);
+
+            font-size: 13px;
+            font-weight: 700;
+
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-family: "Poppins", sans-serif;
+
+            font-size:
+                clamp(44px, 6vw, 82px);
+
+            line-height: 1.02;
+
+            letter-spacing: -3px;
+
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero-description {
+            color: var(--muted);
+
+            max-width: 680px;
+
+            font-size: 17px;
+            line-height: 1.8;
+
+            margin-bottom: 28px;
+        }
+
+        .typing-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-bottom: 32px;
+
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .typing-label {
+            color: white;
+        }
+
+        #typingText {
+            color: var(--blue);
+
+            border-right:
+                2px solid var(--blue);
+
+            padding-right: 5px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            padding: 14px 23px;
+
+            border-radius: 12px;
+
+            font-weight: 800;
+
+            transition: .3s;
+
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            color: #08111f;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--gold),
+                    var(--gold-light)
+                );
+
+            box-shadow:
+                0 15px 35px rgba(245,196,81,.16);
+        }
+
+        .btn-secondary {
+            border:
+                1px solid rgba(255,255,255,.12);
+
+            background:
+                rgba(255,255,255,.04);
+
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+        }
+
+
+        /* =========================================================
+           PROFILE IMAGE
+        ========================================================= */
+
+        .hero-profile {
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-ring {
+            width: min(430px, 82vw);
+            aspect-ratio: 1;
+
+            border-radius: 50%;
+
+            padding: 10px;
+
+            background:
+                conic-gradient(
+                    from 0deg,
+                    var(--blue),
+                    transparent 25%,
+                    var(--gold),
+                    transparent 60%,
+                    var(--blue)
+                );
+
+            animation:
+                ringRotate 8s linear infinite;
+        }
+
+        @keyframes ringRotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .profile-inner {
+            width: 100%;
+            height: 100%;
+
+            border-radius: 50%;
+
+            overflow: hidden;
+
+            background: #020617;
+
+            border:
+                8px solid #020617;
+
+            animation:
+                profileFloat 4s ease-in-out infinite;
+        }
+
+        .profile-inner img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        @keyframes profileFloat {
+
+            0%,
+            100% {
+                transform: translateY(-12px);
+            }
+
+            50% {
+                transform: translateY(18px);
+            }
+        }
+
+        .profile-glow {
+            position: absolute;
+
+            width: 280px;
+            height: 280px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(56,189,248,.20),
+                    transparent 70%
+                );
+
+            filter: blur(20px);
+
+            z-index: -1;
+        }
+
+
+        /* =========================================================
+           SECTIONS
+        ========================================================= */
+
+        section {
+            padding: 110px 0;
+        }
+
+        .section-head {
+            text-align: center;
+
+            max-width: 760px;
+
+            margin:
+                0 auto 55px;
+        }
+
+        .section-tag {
+            color: var(--gold);
+
+            text-transform: uppercase;
+
+            letter-spacing: 3px;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            margin-bottom: 12px;
+        }
+
+        .section-head h2 {
+            font-family: Poppins, sans-serif;
+
+            font-size:
+                clamp(32px, 5vw, 52px);
+
+            line-height: 1.1;
+
+            margin-bottom: 15px;
+        }
+
+        .section-head p {
+            color: var(--muted);
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about-box {
+            padding: 45px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(15,23,42,.90),
+                    rgba(7,17,31,.72)
+                );
+
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow);
+
+            text-align: center;
+        }
+
+        .about-box p {
+            color: #cbd5e1;
+
+            line-height: 1.9;
+
+            max-width: 950px;
+
+            margin: auto;
+        }
+
+
+        /* =========================================================
+           SKILLS
+        ========================================================= */
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 28px 22px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 20px;
+
+            background:
+                rgba(8,18,32,.72);
+
+            text-align: center;
+
+            transition: .35s;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--blue),
+                    var(--gold),
+                    transparent
+                );
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+
+            border-color:
+                rgba(56,189,248,.5);
+
+            box-shadow:
+                0 18px 45px
+                rgba(0,0,0,.35);
+        }
+
+        .skill-card i {
+            font-size: 32px;
+
+            color: var(--gold);
+
+            margin-bottom: 16px;
+        }
+
+        .skill-card h3 {
+            font-size: 17px;
+
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================================================
+           SERVICES
+        ========================================================= */
+
+        .services-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .service-card {
+            min-height: 220px;
+
+            padding: 30px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(15,23,42,.95),
+                    rgba(8,18,32,.75)
+                );
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            transition: .35s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-9px);
+
+            border-color:
+                rgba(245,196,81,.45);
+        }
+
+        .service-icon {
+            width: 55px;
+            height: 55px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 15px;
+
+            background:
+                rgba(56,189,248,.09);
+
+            color: var(--blue);
+
+            font-size: 24px;
+
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--muted);
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           PROJECTS
+        ========================================================= */
+
+        .project-section {
+            margin-bottom: 75px;
+        }
+
+        .project-title {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 25px;
+        }
+
+        .project-title h3 {
+            font-family: Poppins, sans-serif;
+
+            font-size: 28px;
+        }
+
+        .project-title span {
+            color: var(--gold);
+
+            font-size: 13px;
+
+            font-weight: 800;
+        }
+
+        .projects-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .project-card {
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 20px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                #07111f;
+
+            cursor: pointer;
+
+            transition: .4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-9px);
+
+            border-color:
+                rgba(56,189,248,.45);
+
+            box-shadow:
+                0 20px 50px
+                rgba(0,0,0,.40);
+        }
+
+        .project-thumb {
+            aspect-ratio: 16 / 10;
+
+            overflow: hidden;
+
+            background: #020617;
+        }
+
+        .project-thumb img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: .5s;
+        }
+
+        .project-card:hover
+        .project-thumb img {
+            transform: scale(1.06);
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h4 {
+            margin-bottom: 7px;
+        }
+
+        .project-info p {
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        .project-number {
+            position: absolute;
+
+            top: 12px;
+            left: 12px;
+
+            padding: 6px 10px;
+
+            border-radius: 999px;
+
+            background:
+                rgba(2,6,23,.78);
+
+            backdrop-filter: blur(8px);
+
+            color: var(--gold);
+
+            font-size: 11px;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================================================
+           PROJECT MODAL / GALLERY
+        ========================================================= */
+
+        .modal {
+            position: fixed;
+
+            inset: 0;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+
+            background:
+                rgba(0,0,0,.88);
+
+            backdrop-filter: blur(15px);
+
+            z-index: 2000;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            width: min(1100px, 100%);
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            border-radius: 24px;
+
+            padding: 25px;
+
+            background:
+                #07111f;
+
+            border:
+                1px solid rgba(56,189,248,.22);
+        }
+
+        .modal-head {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 22px;
+        }
+
+        .modal-head h3 {
+            font-size: 24px;
+        }
+
+        .modal-close {
+            width: 42px;
+            height: 42px;
+
+            border: 0;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.07);
+
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+
+            border-radius: 16px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background: #020617;
+        }
+
+        .gallery-item img {
+            width: 100%;
+
+            height: auto;
+
+            object-fit: contain;
+
+            transition: .35s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.025);
+        }
+
+
+        /* =========================================================
+           GRAPHIC DESIGN
+        ========================================================= */
+
+        .graphic-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .graphic-card {
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 20px;
+
+            border:
+                1px solid rgba(56,189,248,.15);
+
+            background: #07111f;
+
+            cursor: pointer;
+
+            transition: .35s;
+        }
+
+        .graphic-card:hover {
+            transform: translateY(-8px);
+
+            border-color:
+                rgba(245,196,81,.45);
+        }
+
+        .graphic-card img {
+            width: 100%;
+
+            aspect-ratio: 16/10;
+
+            object-fit: cover;
+
+            transition: .5s;
+        }
+
+        .graphic-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .graphic-label {
+            padding: 15px 18px;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================================================
+           CERTIFICATE + CV
+        ========================================================= */
+
+        .credentials {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 30px;
+        }
+
+        .credential-card {
+            padding: 25px;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(15,23,42,.92),
+                    rgba(7,17,31,.82)
+                );
+
+            border:
+                1px solid rgba(245,196,81,.16);
+
+            box-shadow: var(--shadow);
+        }
+
+        .credential-card h3 {
+            margin-bottom: 20px;
+
+            color: var(--gold);
+        }
+
+        .portrait-frame {
+            width: 100%;
+
+            max-width: 480px;
+
+            aspect-ratio: 3 / 4;
+
+            margin: auto;
+
+            padding: 8px;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--gold),
+                    #fff2b7,
+                    var(--gold)
+                );
+        }
+
+        .portrait-frame img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            border-radius: 12px;
+
+            background: white;
+        }
+
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
+
+        .contact-box {
+            position: relative;
+
+            padding: 55px;
+
+            text-align: center;
+
+            border-radius: 30px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(8,18,32,.96),
+                    rgba(15,23,42,.88)
+                );
+
+            border:
+                1px solid rgba(56,189,248,.18);
+        }
+
+        .contact-box::before {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            top: -180px;
+            right: -100px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(56,189,248,.10);
+
+            filter: blur(20px);
+        }
+
+        .contact-box h2 {
+            position: relative;
+
+            font-size:
+                clamp(30px, 5vw, 48px);
+
+            margin-bottom: 15px;
+        }
+
+        .contact-box > p {
+            position: relative;
+
+            color: var(--muted);
+
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            position: relative;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 18px;
+
+            flex-wrap: wrap;
+
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 13px 17px;
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,255,255,.05);
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            color: #cbd5e1;
+        }
+
+        .contact-item i {
+            color: var(--gold);
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 35px 0;
+
+            border-top:
+                1px solid rgba(255,255,255,.06);
+
+            text-align: center;
+        }
+
+        .footer-logo {
+            width: 70px;
+
+            margin: 0 auto 15px;
+        }
+
+        footer p {
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        .footer-social {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            margin: 20px 0;
+        }
+
+        .footer-social a {
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.05);
+
+            color: white;
+
+            transition: .3s;
+        }
+
+        .footer-social a:hover {
+            transform: translateY(-4px);
+
+            color: var(--gold);
+        }
+
+
+        /* =========================================================
+           WHATSAPP FLOATING BUTTON
+        ========================================================= */
+
+        .whatsapp-float {
+            position: fixed;
+
+            right: 22px;
+            bottom: 22px;
+
+            width: 58px;
+            height: 58px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background: #25D366;
+
+            color: white;
+
+            font-size: 28px;
+
+            box-shadow:
+                0 10px 35px
+                rgba(37,211,102,.28);
+
+            z-index: 1500;
+
+            animation:
+                whatsappPulse 2.2s infinite;
+        }
+
+        @keyframes whatsappPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
+        }
+
+
+        /* =========================================================
+           REVEAL ANIMATION
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(35px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media(max-width: 1000px) {
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .typing-wrap {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-profile {
+                order: -1;
+            }
+
+            .skills-grid,
+            .services-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .graphic-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+
+        @media(max-width: 768px) {
+
+            .nav-links {
+                position: fixed;
+
+                top: 78px;
+                left: 0;
+
+                width: 100%;
+
+                padding: 25px;
+
+                flex-direction: column;
+
+                background:
+                    rgba(2,6,23,.97);
+
+                transform:
+                    translateY(-130%);
+
+                transition: .35s;
+
+                border-bottom:
+                    1px solid rgba(255,255,255,.08);
+            }
+
+            .nav-links.active {
+                transform:
+                    translateY(0);
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-cta {
+                width: 100%;
+
+                text-align: center;
+            }
+
+            .skills-grid,
+            .services-grid,
+            .projects-grid,
+            .graphic-grid,
+            .credentials {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-box,
+            .contact-box {
+                padding: 30px 20px;
+            }
+
+            .hero h1 {
+                letter-spacing: -1.5px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .project-title {
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+        }
+
+
+        @media(max-width: 480px) {
+
+            .hero {
+                padding-top: 105px;
+            }
+
+            .profile-ring {
+                width: 300px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .contact-item {
+                width: 100%;
+
+                justify-content: center;
+            }
+
+            .whatsapp-float {
+                right: 15px;
+                bottom: 15px;
+            }
+        }
+
+    </style>
 </head>
 
 
 <body>
 
+    <!-- =========================================================
+         GALAXY BACKGROUND
+    ========================================================= -->
 
-<!-- =====================================================
-     GALAXY BACKGROUND
-===================================================== -->
+    <div class="galaxy"></div>
 
-<div
-    class="galaxy-background"
-    aria-hidden="true"
->
-
-    <div class="stars stars-one"></div>
-
-    <div class="stars stars-two"></div>
-
-    <div class="stars stars-three"></div>
-
-    <div class="galaxy-glow glow-one"></div>
-
-    <div class="galaxy-glow glow-two"></div>
-
-</div>
+    <div class="particles">
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+    </div>
 
 
-<!-- =====================================================
-     MOVING DOTS
-===================================================== -->
+    <!-- =========================================================
+         NAVBAR
+    ========================================================= -->
 
-<div
-    class="floating-dots"
-    aria-hidden="true"
->
+    <header>
 
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
+        <div class="container nav">
 
-</div>
+            <a href="#home" class="brand">
+                <img
+                    src="assets/logo.png"
+                    alt="GMM Social Growth">
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+
+                <li>
+                    <a href="#services">Services</a>
+                </li>
+
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+
+                <li>
+                    <a href="#credentials">Credentials</a>
+                </li>
+
+                <li>
+                    <a
+                        href="#contact"
+                        class="nav-cta">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                aria-label="Open Menu">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+    </header>
 
 
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
 
-<header class="site-header">
+    <main>
 
-    <nav class="navbar">
+        <section
+            class="hero"
+            id="home">
 
-        <a
-            href="#home"
-            class="brand"
-        >
+            <div class="container hero-grid">
+
+                <div class="hero-content reveal">
+
+                    <div class="hero-badge">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        GMM SOCIAL GROWTH
+
+                    </div>
+
+
+                    <h1>
+
+                        I Build
+                        <span>
+                            Digital Growth
+                        </span>
+                        That Gets Results.
+
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        Professional digital marketing,
+                        Shopify store design, SEO,
+                        social media management,
+                        graphic design and creative solutions
+                        designed to help businesses grow online.
+
+                    </p>
+
+
+                    <div class="typing-wrap">
+
+                        <span class="typing-label">
+                            My Expertise:
+                        </span>
+
+                        <span id="typingText">
+                            Digital Marketing
+                        </span>
+
+                    </div>
+
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#projects"
+                            class="btn btn-primary">
+
+                            <i class="fa-solid fa-briefcase"></i>
+
+                            View My Work
+
+                        </a>
+
+
+                        <a
+                            href="https://wa.me/923126038383"
+                            target="_blank"
+                            class="btn btn-secondary">
+
+                            <i class="fa-brands fa-whatsapp"></i>
+
+                            Let's Talk
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROFILE -->
+
+                <div class="hero-profile reveal">
+
+                    <div class="profile-glow"></div>
+
+                    <div class="profile-ring">
+
+                        <div class="profile-inner">
+
+                            <img
+                                src="assets/profile.png"
+                                alt="GMM Social Growth Profile">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ABOUT
+        ====================================================== -->
+
+        <section id="about">
+
+            <div class="container">
+
+                <div class="section-head reveal">
+
+                    <div class="section-tag">
+                        About Me
+                    </div>
+
+                    <h2>
+                        Turning Ideas Into
+                        <span style="color:var(--gold)">
+                            Digital Results
+                        </span>
+                    </h2>
+
+                    <p>
+                        A creative digital professional focused
+                        on building strong online brands,
+                        high-converting stores and effective
+                        digital marketing strategies.
+                    </p>
+
+                </div>
+
+
+                <div class="about-box reveal">
+
+                    <p>
+
+                        At GMM Social Growth, I combine
+                        creativity, strategy and technology
+                        to help businesses establish and grow
+                        their online presence. From Shopify
+                        store design and e-commerce solutions
+                        to Meta & TikTok Ads, SEO, social media,
+                        graphics and video content — every
+                        project is designed with growth in mind.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SKILLS
+        ====================================================== -->
+
+        <section id="skills">
+
+            <div class="container">
+
+                <div class="section-head reveal">
+
+                    <div class="section-tag">
+                        My Skills
+                    </div>
+
+                    <h2>
+                        Skills That
+                        <span style="color:var(--blue)">
+                            Drive Growth
+                        </span>
+                    </h2>
+
+                </div>
+
+
+                <div class="skills-grid">
+
+                    <div class="skill-card reveal">
+                        <i class="fa-solid fa-bullhorn"></i>
+                        <h3>Digital Marketing</h3>
+                        <p>Growth-focused digital strategies.</p>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <i class="fa-brands fa-meta"></i>
+                        <h3>Meta Ads</h3>
+                        <p>Campaign setup, targeting and optimization.</p>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <i class="fa-brands fa-tiktok"></i>
+                        <h3>TikTok Ads</h3>
+                        <p>Creative campaigns built for performance.</p>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <h3>SEO</h3>
+                        <p>On-page, technical and off-page SEO.</p>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <i class="fa-brands fa-shopify"></i>
+                        <h3>Shopify</h3>
+                        <p>Professional e-commerce store design.</p>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <i class="fa-solid fa-pen-nib"></i>
+                        <h3>Graphic Design</h3>
+                        <p>Professional visual content and branding.</p>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <i class="fa-solid fa-video"></i>
+                        <h3>Video Editing</h3>
+                        <p>Reels, ads, promotional and creative videos.</p>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                        <h3>Social Media</h3>
+                        <p>Content, posting and page management.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SERVICES
+        ====================================================== -->
+
+        <section id="services">
+
+            <div class="container">
+
+                <div class="section-head reveal">
+
+                    <div class="section-tag">
+                        What I Do
+                    </div>
+
+                    <h2>
+                        Professional
+                        <span style="color:var(--gold)">
+                            Services
+                        </span>
+                    </h2>
+
+                </div>
+
+
+                <div class="services-grid">
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            <i class="fa-brands fa-shopify"></i>
+                        </div>
+
+                        <h3>
+                            Shopify Store Design
+                        </h3>
+
+                        <p>
+                            Modern, responsive and
+                            conversion-focused Shopify stores.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+
+                        <h3>
+                            Digital Marketing
+                        </h3>
+
+                        <p>
+                            Strategic marketing campaigns
+                            designed to increase reach and sales.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            <i class="fa-brands fa-meta"></i>
+                        </div>
+
+                        <h3>
+                            Meta & TikTok Ads
+                        </h3>
+
+                        <p>
+                            Campaign setup, audience research,
+                            creative testing and optimization.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-magnifying-glass-chart"></i>
+                        </div>
+
+                        <h3>
+                            SEO Services
+                        </h3>
+
+                        <p>
+                            Keyword research, on-page SEO,
+                            technical SEO and off-page growth.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+
+                        <h3>
+                            Graphic Design
+                        </h3>
+
+                        <p>
+                            Social media graphics,
+                            banners, promotional creatives
+                            and visual branding.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+
+                        <h3>
+                            Video Editing
+                        </h3>
+
+                        <p>
+                            Reels, ads, UGC creatives,
+                            promotional videos and short-form content.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-share-nodes"></i>
+                        </div>
+
+                        <h3>
+                            Social Media Management
+                        </h3>
+
+                        <p>
+                            Content planning, posting,
+                            page management and engagement.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+
+                        <h3>
+                            Web Development
+                        </h3>
+
+                        <p>
+                            Responsive, modern and
+                            professional websites.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PROJECTS
+        ====================================================== -->
+
+        <section id="projects">
+
+            <div class="container">
+
+                <div class="section-head reveal">
+
+                    <div class="section-tag">
+                        Portfolio
+                    </div>
+
+                    <h2>
+                        My Recent
+                        <span style="color:var(--blue)">
+                            Projects
+                        </span>
+                    </h2>
+
+                    <p>
+                        Explore my Shopify store design
+                        projects and e-commerce work.
+                    </p>
+
+                </div>
+
+
+                <!-- ================= SHOPIFY ================= -->
+
+                <div class="project-section">
+
+                    <div class="project-title">
+
+                        <h3>
+                            Shopify Store Design
+                        </h3>
+
+                        <span>
+                            12 STORE PROJECTS
+                        </span>
+
+                    </div>
+
+
+                    <div class="projects-grid">
+
+
+                        <!-- BAGS -->
+
+                        <div
+                            class="project-card reveal"
+                            onclick="openGallery('bags')">
+
+                            <span class="project-number">
+                                01
+                            </span>
+
+                            <div class="project-thumb">
+
+                                <img
+                                    src="assets/bags-thumbnail.png"
+                                    alt="Bags Shopify Store">
+
+                            </div>
+
+                            <div class="project-info">
+
+                                <h4>
+                                    Bags Store
+                                </h4>
+
+                                <p>
+                                    Shopify e-commerce design
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- BEAUTY -->
+
+                        <div
+                            class="project-card reveal"
+                            onclick="openGallery('beauty')">
+
+                            <span class="project-number">
+                                02
+                            </span>
+
+                            <div class="project-thumb">
+
+                                <img
+                                    src="assets/beauty-thumbnail.png"
+                                    alt="Beauty Shopify Store">
+
+                            </div>
+
+                            <div class="project-info">
+
+                                <h4>
+                                    Beauty Store
+                                </h4>
+
+                                <p>
+                                    Beauty e-commerce design
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CLOTHING -->
+
+                        <div
+                            class="project-card reveal"
+                            onclick="openGallery('clothing')">
+
+                            <span class="project-number">
+                                03
+                            </span>
+
+                            <div class="project-thumb">
+
+                                <img
+                                    src="assets/clothing-thumbnail.png"
+                                    alt="Clothing Shopify Store">
+
+                            </div>
+
+                            <div class="project-info">
+
+                                <h4>
+                                    Clothing Store
+                                </h4>
+
+                                <p>
+                                    Fashion Shopify design
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- GLOW -->
+
+                        <div
+                            class="project-card reveal"
+                            onclick="openGallery('glow')">
+
+                            <span class="project-number">
+                                04
+                            </span>
+
+                            <div class="project-thumb">
+
+                                <img
+                                    src="assets/glow-thumbnail.png"
+                                    alt="Glow Shopify Store">
+
+                            </div>
+
+                            <div class="project-info">
+
+                                <h4>
+                                    Glow Store
+                                </h4>
+
+                                <p>
+                                    Beauty & lifestyle store
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- JEWELLERY -->
+
+                        <div
+                            class="project-card reveal"
+                            onclick="openGallery('jewellery')">
+
+                            <span class="project-number">
+                                05
+                            </span>
+
+                            <div class="project-thumb">
+
+                                <img
+                                    src="assets/jewellery-thumbnail.png"
+                                    alt="Jewellery Shopify Store">
+
+                            </div>
+
+                            <div class="project-info">
+
+                                <h4>
+                                    Jewellery Store
+                                </h4>
+
+                                <p>
+                                    Premium jewellery e-commerce
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- MOBILE ELECTRONICS -->
+
+                        <div
+                            class="project-card reveal"
+                            onclick="openGallery('mobile-electronics')">
+
+                            <span class="project-number">
+                                06
+                            </span>
+
+                            <div class="project-thumb">
+
+                                <img
+                                    src="assets/mobile-electronics-thumbnail.png"
+                                    alt="Mobile Electronics Shopify Store">
+
+                            </div>
+
+                            <div class="project-info">
+
+                                <h4>
+                                    Mobile Electronics
+                                </h4>
+
+                                <p>
+                                    Electronics e-commerce store
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SHOES -->
+
+                        <div
+                            class="project-card reveal"
+                            onclick="openGallery('shoes')">
+
+                            <span class="project-number">
+                                07
+                            </span>
+
+                            <div class="project-thumb">
+
+                                <img
+                                    src="assets/shoes-thumbnail.png"
+                                    alt="Shoes Shopify Store">
+
+                            </div>
+
+                            <div class="project-info">
+
+                                <h4>
+                                    Shoes Store
+                                </h4>
+
+                                <p>
+                                    Footwear Shopify design
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SKINCARE -->
+
+                        <div
+                            class="project-card reveal"
+                            onclick="openGallery('skincare')">
+
+                            <span class="project-number">
+                                08
+                            </span>
+
+                            <div class="project-thumb">
+
+                                <img
+                                    src="assets/skincare-thumbnail.png"
+                                    alt="Skincare Shopify Store">
+
+                            </div>
+
+                            <div class="project-info">
+
+                                <h4>
+                                    Skincare Store
+                                </h4>
+
+                                <p>
+                                    Skincare e-commerce design
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- WATCHES -->
+
+                        <div
+                            class="project-card reveal"
+                            onclick="openGallery('watches')">
+
+                            <span class="project-number">
+                                09
+                            </span>
+
+                            <div class="project-thumb">
+
+                                <img
+                                    src="assets/watches-thumbnail.png"
+                                    alt="Watches Shopify Store">
+
+                            </div>
+
+                            <div class="project-info">
+
+                                <h4>
+                                    Watches Store
+                                </h4>
+
+                                <p>
+                                    Premium watch store design
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FASHION -->
+
+                        <div
+                            class="project-card reveal"
+                            onclick="openGallery('fashion')">
+
+                            <span class="project-number">
+                                10
+                            </span>
+
+                            <div class="project-thumb">
+
+                                <img
+                                    src="assets/fashion-thumbnail.png"
+                                    alt="Fashion Shopify Store">
+
+                            </div>
+
+                            <div class="project-info">
+
+                                <h4>
+                                    Fashion Store
+                                </h4>
+
+                                <p>
+                                    Fashion e-commerce experience
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ECOMMERCE -->
+
+                        <div
+                            class="project-card reveal"
+                            onclick="openGallery('ecommerce')">
+
+                            <span class="project-number">
+                                11
+                            </span>
+
+                            <div class="project-thumb">
+
+                                <img
+                                    src="assets/ecommerce-thumbnail.png"
+                                    alt="Ecommerce Shopify Store">
+
+                            </div>
+
+                            <div class="project-info">
+
+                                <h4>
+                                    E-commerce Store
+                                </h4>
+
+                                <p>
+                                    Complete e-commerce design
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- UAE ECOMMERCE -->
+
+                        <div
+                            class="project-card reveal"
+                            onclick="openGallery('uae-ecommerce')">
+
+                            <span class="project-number">
+                                12
+                            </span>
+
+                            <div class="project-thumb">
+
+                                <img
+                                    src="assets/uae-ecommerce-thumbnail.png"
+                                    alt="UAE Ecommerce Shopify Store">
+
+                            </div>
+
+                            <div class="project-info">
+
+                                <h4>
+                                    UAE E-commerce Store
+                                </h4>
+
+                                <p>
+                                    UAE-focused e-commerce design
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     GRAPHIC DESIGN
+                ================================================== -->
+
+                <div class="project-section">
+
+                    <div class="project-title">
+
+                        <h3>
+                            Graphic Design
+                        </h3>
+
+                        <span>
+                            09 PROJECTS
+                        </span>
+
+                    </div>
+
+
+                    <div class="graphic-grid">
+
+                        <div
+                            class="graphic-card reveal"
+                            onclick="openGraphic(1)">
+
+                            <img
+                                src="assets/thumbnail-1.png"
+                                alt="Graphic Design Project 1">
+
+                            <div class="graphic-label">
+                                Graphic Design — 01
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="graphic-card reveal"
+                            onclick="openGraphic(2)">
+
+                            <img
+                                src="assets/thumbnail-2.png"
+                                alt="Graphic Design Project 2">
+
+                            <div class="graphic-label">
+                                Graphic Design — 02
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="graphic-card reveal"
+                            onclick="openGraphic(3)">
+
+                            <img
+                                src="assets/thumbnail-3.png"
+                                alt="Graphic Design Project 3">
+
+                            <div class="graphic-label">
+                                Graphic Design — 03
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="graphic-card reveal"
+                            onclick="openGraphic(4)">
+
+                            <img
+                                src="assets/thumbnail-4.png"
+                                alt="Graphic Design Project 4">
+
+                            <div class="graphic-label">
+                                Graphic Design — 04
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="graphic-card reveal"
+                            onclick="openGraphic(5)">
+
+                            <img
+                                src="assets/thumbnail-5.png"
+                                alt="Graphic Design Project 5">
+
+                            <div class="graphic-label">
+                                Graphic Design — 05
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="graphic-card reveal"
+                            onclick="openGraphic(6)">
+
+                            <img
+                                src="assets/thumbnail-6.png"
+                                alt="Graphic Design Project 6">
+
+                            <div class="graphic-label">
+                                Graphic Design — 06
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="graphic-card reveal"
+                            onclick="openGraphic(7)">
+
+                            <img
+                                src="assets/thumbnail-7.png"
+                                alt="Graphic Design Project 7">
+
+                            <div class="graphic-label">
+                                Graphic Design — 07
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="graphic-card reveal"
+                            onclick="openGraphic(8)">
+
+                            <img
+                                src="assets/thumbnail-8.png"
+                                alt="Graphic Design Project 8">
+
+                            <div class="graphic-label">
+                                Graphic Design — 08
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="graphic-card reveal"
+                            onclick="openGraphic(9)">
+
+                            <img
+                                src="assets/thumbnail-9.png"
+                                alt="Graphic Design Project 9">
+
+                            <div class="graphic-label">
+                                Graphic Design — 09
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CERTIFICATE + CV
+        ====================================================== -->
+
+        <section id="credentials">
+
+            <div class="container">
+
+                <div class="section-head reveal">
+
+                    <div class="section-tag">
+                        Credentials
+                    </div>
+
+                    <h2>
+                        Certificate &
+                        <span style="color:var(--gold)">
+                            CV
+                        </span>
+                    </h2>
+
+                    <p>
+                        Professional credentials and profile information.
+                    </p>
+
+                </div>
+
+
+                <div class="credentials">
+
+
+                    <!-- CERTIFICATE -->
+
+                    <div class="credential-card reveal">
+
+                        <h3>
+                            <i class="fa-solid fa-certificate"></i>
+                            Professional Certificate
+                        </h3>
+
+                        <div class="portrait-frame">
+
+                            <img
+                                src="assets/certificate.png"
+                                alt="Professional Certificate">
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CV -->
+
+                    <div class="credential-card reveal">
+
+                        <h3>
+                            <i class="fa-solid fa-file-lines"></i>
+                            Professional CV
+                        </h3>
+
+                        <div class="portrait-frame">
+
+                            <img
+                                src="assets/cv.png"
+                                alt="Professional CV">
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONTACT
+        ====================================================== -->
+
+        <section id="contact">
+
+            <div class="container">
+
+                <div class="contact-box reveal">
+
+                    <h2>
+                        Let's Grow Your
+                        <span style="color:var(--gold)">
+                            Business
+                        </span>
+                    </h2>
+
+                    <p>
+                        Have a project in mind?
+                        Let's discuss how I can help
+                        your business grow online.
+                    </p>
+
+
+                    <div class="contact-details">
+
+                        <a
+                            class="contact-item"
+                            href="mailto:gmmsocialgrowth@gmail.com">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            gmmsocialgrowth@gmail.com
+
+                        </a>
+
+
+                        <a
+                            class="contact-item"
+                            href="https://wa.me/923126038383"
+                            target="_blank">
+
+                            <i class="fa-brands fa-whatsapp"></i>
+
+                            03126038388
+
+                        </a>
+
+                    </div>
+
+
+                    <a
+                        href="https://wa.me/923126038383"
+                        target="_blank"
+                        class="btn btn-primary">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        Chat on WhatsApp
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer>
+
+        <div class="container">
 
             <img
-                src="logo.jpeg"
-                alt="GMM Social Growth Logo"
-            >
-
-            <span>
-                GMM
-                <strong>Social Growth</strong>
-            </span>
-
-        </a>
-
-
-        <button
-            class="menu-toggle"
-            type="button"
-            aria-label="Open menu"
-            aria-expanded="false"
-        >
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </button>
-
-
-        <ul class="nav-links">
-
-            <li>
-                <a
-                    href="#home"
-                    class="active"
-                >
-                    Home
-                </a>
-            </li>
-
-            <li>
-                <a href="#about">
-                    About
-                </a>
-            </li>
-
-            <li>
-                <a href="#skills">
-                    Skills
-                </a>
-            </li>
-
-            <li>
-                <a href="#services">
-                    Services
-                </a>
-            </li>
-
-            <li>
-                <a href="#projects">
-                    Projects
-                </a>
-            </li>
-
-            <li>
-                <a href="#graphic-design">
-                    Graphic Design
-                </a>
-            </li>
-
-            <li>
-                <a href="#certificates">
-                    CV
-                </a>
-            </li>
-
-            <li>
-                <a href="#contact">
-                    Contact
-                </a>
-            </li>
-
-        </ul>
-
-    </nav>
-
-</header>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<main>
-
-<section
-    id="home"
-    class="hero"
->
-
-    <div class="hero-content">
-
-
-        <!-- PROFILE IMAGE -->
-
-        <div class="profile-wrapper">
-
-            <div class="profile-orbit orbit-one"></div>
-
-            <div class="profile-orbit orbit-two"></div>
-
-            <div class="profile-glow"></div>
-
-            <img
-                src="profile.jpeg"
-                alt="Ghulam Mustafa Profile"
-                class="profile-img"
-            >
-
-        </div>
-
-
-        <span class="hero-label">
-            DIGITAL MARKETING & E-COMMERCE PROFESSIONAL
-        </span>
-
-
-        <h1>
-
-            I Build
-
-            <span class="gradient-text">
-                Digital Growth
-            </span>
-
-            That Matters.
-
-        </h1>
-
-
-        <p class="hero-description">
-
-            I am
-
-            <strong>
-                Ghulam Mustafa
-            </strong>
-
-            — a Digital Marketer, E-Commerce Specialist,
-            Social Media Manager and Creative Designer
-            helping businesses build stronger digital
-            brands and better online experiences.
-
-        </p>
-
-
-        <!-- CHANGING SKILL -->
-
-        <div class="typing-wrapper">
-
-            <span>
-                Specialized in
-            </span>
-
-            <span
-                id="typing"
-                class="typing-text"
-            >
-                Digital Marketing
-            </span>
-
-        </div>
-
-
-        <div class="hero-buttons">
-
-            <a
-                href="#projects"
-                class="btn btn-primary"
-            >
-
-                Explore My Work
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </a>
-
-
-            <a
-                href="#contact"
-                class="btn btn-secondary"
-            >
-
-                Let's Work Together
-
-            </a>
-
-        </div>
-
-
-        <!-- SOCIAL LINKS -->
-
-        <div class="hero-socials">
-
-            <a
-                href="#social"
-                aria-label="Social Media"
-            >
-                <i class="fa-solid fa-share-nodes"></i>
-            </a>
-
-            <a
-                href="#contact"
-                aria-label="Contact"
-            >
-                <i class="fa-solid fa-envelope"></i>
-            </a>
-
-            <a
-                href="#projects"
-                aria-label="Projects"
-            >
-                <i class="fa-solid fa-briefcase"></i>
-            </a>
-
-        </div>
-
-
-    </div>
-
-
-    <div class="scroll-indicator">
-
-        <span>
-            Scroll to explore
-        </span>
-
-        <i class="fa-solid fa-chevron-down"></i>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
-<section
-    id="about"
-    class="section about-section"
->
-
-    <div class="section-heading">
-
-        <span class="eyebrow">
-            ABOUT ME
-        </span>
-
-        <h2>
-            Turning Ideas Into
-            <span class="gradient-text">
-                Digital Results
-            </span>
-        </h2>
-
-        <p>
-            Strategy, creativity and technology combined
-            into one professional digital experience.
-        </p>
-
-    </div>
-
-
-    <div class="about-grid">
-
-
-        <div class="about-card">
-
-            <div class="card-icon">
-                <i class="fa-solid fa-bullseye"></i>
-            </div>
-
-            <h3>
-                Strategy First
-            </h3>
-
-            <p>
-                Every project starts with understanding
-                the business, audience and objective before
-                building the right digital strategy.
-            </p>
-
-        </div>
-
-
-        <div class="about-card">
-
-            <div class="card-icon">
-                <i class="fa-solid fa-chart-line"></i>
-            </div>
-
-            <h3>
-                Growth Focused
-            </h3>
-
-            <p>
-                I focus on practical marketing solutions
-                designed to improve visibility, engagement,
-                leads and online growth.
-            </p>
-
-        </div>
-
-
-        <div class="about-card">
-
-            <div class="card-icon">
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
-            </div>
-
-            <h3>
-                Creative Execution
-            </h3>
-
-            <p>
-                From graphics and content to e-commerce
-                experiences, every detail is designed to
-                look professional and purposeful.
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     SKILLS
-===================================================== -->
-
-<section
-    id="skills"
-    class="section"
->
-
-    <div class="section-heading">
-
-        <span class="eyebrow">
-            MY EXPERTISE
-        </span>
-
-        <h2>
-            Skills That
-            <span class="gradient-text">
-                Drive Growth
-            </span>
-        </h2>
-
-        <p>
-            A complete digital skill set for modern businesses.
-        </p>
-
-    </div>
-
-
-    <div class="skills-grid">
-
-
-        <article class="skill-card">
-
-            <div class="skill-icon">
-                <i class="fa-solid fa-magnifying-glass-chart"></i>
-            </div>
-
-            <h3>
-                SEO
-            </h3>
-
-            <p>
-                Search visibility and organic growth.
-            </p>
-
-        </article>
-
-
-        <article class="skill-card">
-
-            <div class="skill-icon">
-                <i class="fa-solid fa-bullhorn"></i>
-            </div>
-
-            <h3>
-                Social Media Marketing
-            </h3>
-
-            <p>
-                Strategy, content and audience growth.
-            </p>
-
-        </article>
-
-
-        <article class="skill-card">
-
-            <div class="skill-icon">
-                <i class="fa-brands fa-facebook"></i>
-            </div>
-
-            <h3>
-                Facebook & Instagram Ads
-            </h3>
-
-            <p>
-                Paid campaigns built around results.
-            </p>
-
-        </article>
-
-
-        <article class="skill-card">
-
-            <div class="skill-icon">
-                <i class="fa-brands fa-google"></i>
-            </div>
-
-            <h3>
-                Google PPC
-            </h3>
-
-            <p>
-                Targeted advertising and conversion campaigns.
-            </p>
-
-        </article>
-
-
-        <article class="skill-card">
-
-            <div class="skill-icon">
-                <i class="fa-brands fa-youtube"></i>
-            </div>
-
-            <h3>
-                YouTube Marketing
-            </h3>
-
-            <p>
-                Video strategy and channel growth.
-            </p>
-
-        </article>
-
-
-        <article class="skill-card">
-
-            <div class="skill-icon">
-                <i class="fa-solid fa-pen-nib"></i>
-            </div>
-
-            <h3>
-                Content Marketing
-            </h3>
-
-            <p>
-                Strategic content for digital audiences.
-            </p>
-
-        </article>
-
-
-        <article class="skill-card">
-
-            <div class="skill-icon">
-                <i class="fa-solid fa-envelope"></i>
-            </div>
-
-            <h3>
-                Email Marketing
-            </h3>
-
-            <p>
-                Campaigns designed for communication and conversion.
-            </p>
-
-        </article>
-
-
-        <article class="skill-card">
-
-            <div class="skill-icon">
-                <i class="fa-solid fa-users"></i>
-            </div>
-
-            <h3>
-                Lead Generation
-            </h3>
-
-            <p>
-                Finding and attracting potential customers.
-            </p>
-
-        </article>
-
-
-        <article class="skill-card">
-
-            <div class="skill-icon">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-
-            <h3>
-                E-Commerce Marketing
-            </h3>
-
-            <p>
-                Digital marketing for online stores.
-            </p>
-
-        </article>
-
-
-        <article class="skill-card">
-
-            <div class="skill-icon">
-                <i class="fa-solid fa-palette"></i>
-            </div>
-
-            <h3>
-                Branding
-            </h3>
-
-            <p>
-                Strong visual identity and brand positioning.
-            </p>
-
-        </article>
-
-
-        <article class="skill-card">
-
-            <div class="skill-icon">
-                <i class="fa-solid fa-code"></i>
-            </div>
-
-            <h3>
-                Website Development
-            </h3>
-
-            <p>
-                Modern responsive web experiences.
-            </p>
-
-        </article>
-
-
-        <article class="skill-card">
-
-            <div class="skill-icon">
-                <i class="fa-solid fa-pen-ruler"></i>
-            </div>
-
-            <h3>
-                Graphic Design
-            </h3>
-
-            <p>
-                Professional visual content and creative designs.
-            </p>
-
-        </article>
-
-
-        <article class="skill-card">
-
-            <div class="skill-icon">
-                <i class="fa-solid fa-video"></i>
-            </div>
-
-            <h3>
-                Video Editing
-            </h3>
-
-            <p>
-                Reels, promotional videos and social content.
-            </p>
-
-        </article>
-
-
-        <article class="skill-card">
-
-            <div class="skill-icon">
-                <i class="fa-solid fa-robot"></i>
-            </div>
-
-            <h3>
-                AI-Powered Marketing
-            </h3>
-
-            <p>
-                Modern AI solutions for digital marketing.
-            </p>
-
-        </article>
-
-
-        <article class="skill-card">
-
-            <div class="skill-icon">
-                <i class="fa-brands fa-shopify"></i>
-            </div>
-
-            <h3>
-                Shopify
-            </h3>
-
-            <p>
-                Store design and e-commerce solutions.
-            </p>
-
-        </article>
-
-
-        <article class="skill-card">
-
-            <div class="skill-icon">
-                <i class="fa-solid fa-object-group"></i>
-            </div>
-
-            <h3>
-                Canva Design
-            </h3>
-
-            <p>
-                Social media and marketing visuals.
-            </p>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     SERVICES
-===================================================== -->
-
-<section
-    id="services"
-    class="section"
->
-
-    <div class="section-heading">
-
-        <span class="eyebrow">
-            WHAT I DO
-        </span>
-
-        <h2>
-            Professional
-            <span class="gradient-text">
-                Services
-            </span>
-        </h2>
-
-        <p>
-            Choose a service and let's build something powerful.
-        </p>
-
-    </div>
-
-
-    <div class="services-grid">
-
-
-        <article class="service-card">
-
-            <div class="service-number">
-                01
-            </div>
-
-            <i class="fa-solid fa-chart-line"></i>
-
-            <h3>
-                Digital Marketing
-            </h3>
-
-            <p>
-                Complete digital marketing strategies
-                designed to grow your business online.
-            </p>
-
-            <a href="#contact">
-                Get Started
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-        </article>
-
-
-        <article class="service-card">
-
-            <div class="service-number">
-                02
-            </div>
-
-            <i class="fa-solid fa-hashtag"></i>
-
-            <h3>
-                Social Media Marketing
-            </h3>
-
-            <p>
-                Social strategy, content planning,
-                audience growth and engagement.
-            </p>
-
-            <a href="#contact">
-                Get Started
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-        </article>
-
-
-        <article class="service-card">
-
-            <div class="service-number">
-                03
-            </div>
-
-            <i class="fa-brands fa-shopify"></i>
-
-            <h3>
-                Shopify Store Design
-            </h3>
-
-            <p>
-                Professional e-commerce stores designed
-                for modern brands and customers.
-            </p>
-
-            <a href="#projects">
-                View Projects
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-        </article>
-
-
-        <article class="service-card">
-
-            <div class="service-number">
-                04
-            </div>
-
-            <i class="fa-solid fa-palette"></i>
-
-            <h3>
-                Graphic Design
-            </h3>
-
-            <p>
-                Premium thumbnails, social posts,
-                branding and marketing graphics.
-            </p>
-
-            <a href="#graphic-design">
-                View Designs
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-        </article>
-
-
-        <article class="service-card">
-
-            <div class="service-number">
-                05
-            </div>
-
-            <i class="fa-solid fa-video"></i>
-
-            <h3>
-                Video Editing
-            </h3>
-
-            <p>
-                Reels, advertisements and promotional
-                videos for brands and creators.
-            </p>
-
-            <a href="#contact">
-                Get Started
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-        </article>
-
-
-        <article class="service-card">
-
-            <div class="service-number">
-                06
-            </div>
-
-            <i class="fa-solid fa-store"></i>
-
-            <h3>
-                E-Commerce Marketing
-            </h3>
-
-            <p>
-                Marketing solutions for online stores,
-                products and e-commerce businesses.
-            </p>
-
-            <a href="#projects">
-                View Projects
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-        </article>
-
-
-        <article class="service-card">
-
-            <div class="service-number">
-                07
-            </div>
-
-            <i class="fa-solid fa-magnifying-glass-chart"></i>
-
-            <h3>
-                SEO
-            </h3>
-
-            <p>
-                Search optimization and strategies
-                to improve online visibility.
-            </p>
-
-            <a href="#contact">
-                Get Started
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-        </article>
-
-
-        <article class="service-card">
-
-            <div class="service-number">
-                08
-            </div>
-
-            <i class="fa-solid fa-wand-magic-sparkles"></i>
-
-            <h3>
-                AI Marketing Solutions
-            </h3>
-
-            <p>
-                Modern AI-powered creative and
-                marketing solutions for businesses.
-            </p>
-
-            <a href="#contact">
-                Get Started
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     SHOPIFY / STORE PROJECTS
-===================================================== -->
-
-<section
-    id="projects"
-    class="section projects-section"
->
-
-    <div class="section-heading">
-
-        <span class="eyebrow">
-            MY PORTFOLIO
-        </span>
-
-        <h2>
-            Shopify Store
-            <span class="gradient-text">
-                Projects
-            </span>
-        </h2>
-
-        <p>
-            Explore the store designs and e-commerce
-            projects I have worked on.
-        </p>
-
-    </div>
-
-
-    <div
-        class="project-grid"
-        id="store-project-grid"
-    >
-
-
-        <!-- =================================================
-             BAGS
-        ================================================= -->
-
-        <article
-            class="project-card"
-            data-project="bags"
-        >
-
-            <div class="project-image">
-
-                <img
-                    src="bags-thumbnail.png"
-                    alt="Bags Store Design"
-                    loading="lazy"
-                >
-
-                <div class="project-overlay">
-
-                    <button
-                        class="project-view-btn"
-                        type="button"
-                        data-project-open="bags"
-                    >
-
-                        View Project
-
-                        <i class="fa-solid fa-expand"></i>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="project-content">
-
-                <span>
-                    E-COMMERCE
-                </span>
-
-                <h3>
-                    Bags Store
-                </h3>
-
-                <p>
-                    Fashion accessories e-commerce store design.
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- =================================================
-             BEAUTY
-        ================================================= -->
-
-        <article
-            class="project-card"
-            data-project="beauty"
-        >
-
-            <div class="project-image">
-
-                <img
-                    src="beauty-thumbnail.png"
-                    alt="Beauty Store Design"
-                    loading="lazy"
-                >
-
-                <div class="project-overlay">
-
-                    <button
-                        class="project-view-btn"
-                        type="button"
-                        data-project-open="beauty"
-                    >
-
-                        View Project
-
-                        <i class="fa-solid fa-expand"></i>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="project-content">
-
-                <span>
-                    E-COMMERCE
-                </span>
-
-                <h3>
-                    Beauty Store
-                </h3>
-
-                <p>
-                    Modern beauty brand e-commerce experience.
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- =================================================
-             CLOTHING
-        ================================================= -->
-
-        <article
-            class="project-card"
-            data-project="clothing"
-        >
-
-            <div class="project-image">
-
-                <img
-                    src="clothing-thumbnail.png"
-                    alt="Clothing Store Design"
-                    loading="lazy"
-                >
-
-                <div class="project-overlay">
-
-                    <button
-                        class="project-view-btn"
-                        type="button"
-                        data-project-open="clothing"
-                    >
-
-                        View Project
-
-                        <i class="fa-solid fa-expand"></i>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="project-content">
-
-                <span>
-                    E-COMMERCE
-                </span>
-
-                <h3>
-                    Clothing Store
-                </h3>
-
-                <p>
-                    Fashion clothing store design.
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- =================================================
-             GLOW
-        ================================================= -->
-
-        <article
-            class="project-card"
-            data-project="glow"
-        >
-
-            <div class="project-image">
-
-                <img
-                    src="glow-thumbnail.png"
-                    alt="Glow Store Design"
-                    loading="lazy"
-                >
-
-                <div class="project-overlay">
-
-                    <button
-                        class="project-view-btn"
-                        type="button"
-                        data-project-open="glow"
-                    >
-
-                        View Project
-
-                        <i class="fa-solid fa-expand"></i>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="project-content">
-
-                <span>
-                    E-COMMERCE
-                </span>
-
-                <h3>
-                    Glow Store
-                </h3>
-
-                <p>
-                    Premium beauty and lifestyle store concept.
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- =================================================
-             JEWELLERY
-        ================================================= -->
-
-        <article
-            class="project-card"
-            data-project="jewellery"
-        >
-
-            <div class="project-image">
-
-                <img
-                    src="jewellery-thumbnail.png"
-                    alt="Jewellery Store Design"
-                    loading="lazy"
-                >
-
-                <div class="project-overlay">
-
-                    <button
-                        class="project-view-btn"
-                        type="button"
-                        data-project-open="jewellery"
-                    >
-
-                        View Project
-
-                        <i class="fa-solid fa-expand"></i>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="project-content">
-
-                <span>
-                    E-COMMERCE
-                </span>
-
-                <h3>
-                    Jewellery Store
-                </h3>
-
-                <p>
-                    Elegant jewellery e-commerce design.
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- =================================================
-             MOBILE ELECTRONICS
-        ================================================= -->
-
-        <article
-            class="project-card"
-            data-project="mobile-electronics"
-        >
-
-            <div class="project-image">
-
-                <img
-                    src="mobile-electronics-thumbnail.png"
-                    alt="Mobile Electronics Store Design"
-                    loading="lazy"
-                >
-
-                <div class="project-overlay">
-
-                    <button
-                        class="project-view-btn"
-                        type="button"
-                        data-project-open="mobile-electronics"
-                    >
-
-                        View Project
-
-                        <i class="fa-solid fa-expand"></i>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="project-content">
-
-                <span>
-                    E-COMMERCE
-                </span>
-
-                <h3>
-                    Mobile Electronics
-                </h3>
-
-                <p>
-                    Electronics and mobile accessories store.
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- =================================================
-             SHOES
-        ================================================= -->
-
-        <article
-            class="project-card"
-            data-project="shoes"
-        >
-
-            <div class="project-image">
-
-                <img
-                    src="shoes-thumbnail.png"
-                    alt="Shoes Store Design"
-                    loading="lazy"
-                >
-
-                <div class="project-overlay">
-
-                    <button
-                        class="project-view-btn"
-                        type="button"
-                        data-project-open="shoes"
-                    >
-
-                        View Project
-
-                        <i class="fa-solid fa-expand"></i>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="project-content">
-
-                <span>
-                    E-COMMERCE
-                </span>
-
-                <h3>
-                    Shoes Store
-                </h3>
-
-                <p>
-                    Modern footwear e-commerce store.
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- =================================================
-             SKINCARE
-        ================================================= -->
-
-        <article
-            class="project-card"
-            data-project="skincare"
-        >
-
-            <div class="project-image">
-
-                <img
-                    src="skincare-thumbnail.png"
-                    alt="Skincare Store Design"
-                    loading="lazy"
-                >
-
-                <div class="project-overlay">
-
-                    <button
-                        class="project-view-btn"
-                        type="button"
-                        data-project-open="skincare"
-                    >
-
-                        View Project
-
-                        <i class="fa-solid fa-expand"></i>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="project-content">
-
-                <span>
-                    E-COMMERCE
-                </span>
-
-                <h3>
-                    Skincare Store
-                </h3>
-
-                <p>
-                    Clean and premium skincare store design.
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- =================================================
-             WATCHES
-        ================================================= -->
-
-        <article
-            class="project-card"
-            data-project="watches"
-        >
-
-            <div class="project-image">
-
-                <img
-                    src="watches-thumbnail.png"
-                    alt="Watches Store Design"
-                    loading="lazy"
-                >
-
-                <div class="project-overlay">
-
-                    <button
-                        class="project-view-btn"
-                        type="button"
-                        data-project-open="watches"
-                    >
-
-                        View Project
-
-                        <i class="fa-solid fa-expand"></i>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="project-content">
-
-                <span>
-                    E-COMMERCE
-                </span>
-
-                <h3>
-                    Watches Store
-                </h3>
-
-                <p>
-                    Premium watch brand e-commerce design.
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- =================================================
-             FASHION
-        ================================================= -->
-
-        <article
-            class="project-card"
-            data-project="fashion"
-        >
-
-            <div class="project-image">
-
-                <img
-                    src="fashion-thumbnail.png"
-                    alt="Fashion Store Design"
-                    loading="lazy"
-                >
-
-                <div class="project-overlay">
-
-                    <button
-                        class="project-view-btn"
-                        type="button"
-                        data-project-open="fashion"
-                    >
-
-                        View Project
-
-                        <i class="fa-solid fa-expand"></i>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="project-content">
-
-                <span>
-                    E-COMMERCE
-                </span>
-
-                <h3>
-                    Fashion Store
-                </h3>
-
-                <p>
-                    Complete fashion e-commerce project.
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- =================================================
-             ECOMMERCE
-        ================================================= -->
-
-        <article
-            class="project-card"
-            data-project="ecommerce"
-        >
-
-            <div class="project-image">
-
-                <img
-                    src="ecommerce-thumbnail.png"
-                    alt="E-Commerce Store Design"
-                    loading="lazy"
-                >
-
-                <div class="project-overlay">
-
-                    <button
-                        class="project-view-btn"
-                        type="button"
-                        data-project-open="ecommerce"
-                    >
-
-                        View Project
-
-                        <i class="fa-solid fa-expand"></i>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="project-content">
-
-                <span>
-                    E-COMMERCE
-                </span>
-
-                <h3>
-                    E-Commerce Store
-                </h3>
-
-                <p>
-                    Custom e-commerce website design.
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- =================================================
-             UAE ECOMMERCE
-        ================================================= -->
-
-        <article
-            class="project-card"
-            data-project="uae-ecommerce"
-        >
-
-            <div class="project-image">
-
-                <img
-                    src="uae-ecommerce-thumbnail.png"
-                    alt="UAE E-Commerce Store Design"
-                    loading="lazy"
-                >
-
-                <div class="project-overlay">
-
-                    <button
-                        class="project-view-btn"
-                        type="button"
-                        data-project-open="uae-ecommerce"
-                    >
-
-                        View Project
-
-                        <i class="fa-solid fa-expand"></i>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="project-content">
-
-                <span>
-                    E-COMMERCE
-                </span>
-
-                <h3>
-                    UAE E-Commerce
-                </h3>
-
-                <p>
-                    UAE-focused e-commerce store project.
-                </p>
-
-            </div>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     GRAPHIC DESIGN
-===================================================== -->
-
-<section
-    id="graphic-design"
-    class="section graphic-section"
->
-
-    <div class="section-heading">
-
-        <span class="eyebrow">
-            CREATIVE WORK
-        </span>
-
-        <h2>
-            Graphic
-            <span class="gradient-text">
-                Design
-            </span>
-        </h2>
-
-        <p>
-            A selection of my original thumbnail and graphic
-            design work.
-        </p>
-
-    </div>
-
-
-    <div
-        class="graphic-grid"
-        id="graphic-grid"
-    >
-
-
-        <article class="graphic-card">
-
-            <div class="graphic-image">
-
-                <img
-                    src="thumbnail-1.png"
-                    alt="Graphic Design Thumbnail 1"
-                    loading="lazy"
-                >
-
-            </div>
-
-            <div class="graphic-content">
-
-                <span>
-                    GRAPHIC DESIGN
-                </span>
-
-                <h3>
-                    Thumbnail Design 01
-                </h3>
-
-            </div>
-
-        </article>
-
-
-        <article class="graphic-card">
-
-            <div class="graphic-image">
-
-                <img
-                    src="thumbnail-2.png"
-                    alt="Graphic Design Thumbnail 2"
-                    loading="lazy"
-                >
-
-            </div>
-
-            <div class="graphic-content">
-
-                <span>
-                    GRAPHIC DESIGN
-                </span>
-
-                <h3>
-                    Thumbnail Design 02
-                </h3>
-
-            </div>
-
-        </article>
-
-
-        <article class="graphic-card">
-
-            <div class="graphic-image">
-
-                <img
-                    src="thumbnail-3.png"
-                    alt="Graphic Design Thumbnail 3"
-                    loading="lazy"
-                >
-
-            </div>
-
-            <div class="graphic-content">
-
-                <span>
-                    GRAPHIC DESIGN
-                </span>
-
-                <h3>
-                    Thumbnail Design 03
-                </h3>
-
-            </div>
-
-        </article>
-
-
-        <article class="graphic-card">
-
-            <div class="graphic-image">
-
-                <img
-                    src="thumbnail-4.png"
-                    alt="Graphic Design Thumbnail 4"
-                    loading="lazy"
-                >
-
-            </div>
-
-            <div class="graphic-content">
-
-                <span>
-                    GRAPHIC DESIGN
-                </span>
-
-                <h3>
-                    Thumbnail Design 04
-                </h3>
-
-            </div>
-
-        </article>
-
-
-        <article class="graphic-card">
-
-            <div class="graphic-image">
-
-                <img
-                    src="thumbnail-5.png"
-                    alt="Graphic Design Thumbnail 5"
-                    loading="lazy"
-                >
-
-            </div>
-
-            <div class="graphic-content">
-
-                <span>
-                    GRAPHIC DESIGN
-                </span>
-
-                <h3>
-                    Thumbnail Design 05
-                </h3>
-
-            </div>
-
-        </article>
-
-
-        <article class="graphic-card">
-
-            <div class="graphic-image">
-
-                <img
-                    src="thumbnail-6.png"
-                    alt="Graphic Design Thumbnail 6"
-                    loading="lazy"
-                >
-
-            </div>
-
-            <div class="graphic-content">
-
-                <span>
-                    GRAPHIC DESIGN
-                </span>
-
-                <h3>
-                    Thumbnail Design 06
-                </h3>
-
-            </div>
-
-        </article>
-
-
-        <article class="graphic-card">
-
-            <div class="graphic-image">
-
-                <img
-                    src="thumbnail-7.png"
-                    alt="Graphic Design Thumbnail 7"
-                    loading="lazy"
-                >
-
-            </div>
-
-            <div class="graphic-content">
-
-                <span>
-                    GRAPHIC DESIGN
-                </span>
-
-                <h3>
-                    Thumbnail Design 07
-                </h3>
-
-            </div>
-
-        </article>
-
-
-        <article class="graphic-card">
-
-            <div class="graphic-image">
-
-                <img
-                    src="thumbnail-8.png"
-                    alt="Graphic Design Thumbnail 8"
-                    loading="lazy"
-                >
-
-            </div>
-
-            <div class="graphic-content">
-
-                <span>
-                    GRAPHIC DESIGN
-                </span>
-
-                <h3>
-                    Thumbnail Design 08
-                </h3>
-
-            </div>
-
-        </article>
-
-
-        <article class="graphic-card">
-
-            <div class="graphic-image">
-
-                <img
-                    src="thumbnail-9.png"
-                    alt="Graphic Design Thumbnail 9"
-                    loading="lazy"
-                >
-
-            </div>
-
-            <div class="graphic-content">
-
-                <span>
-                    GRAPHIC DESIGN
-                </span>
-
-                <h3>
-                    Thumbnail Design 09
-                </h3>
-
-            </div>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     SOCIAL MEDIA
-===================================================== -->
-
-<section
-    id="social"
-    class="section"
->
-
-    <div class="section-heading">
-
-        <span class="eyebrow">
-            CONNECT WITH ME
-        </span>
-
-        <h2>
-            Let's Stay
-            <span class="gradient-text">
-                Connected
-            </span>
-        </h2>
-
-    </div>
-
-
-    <div class="social-grid">
-
-
-        <a
-            class="social-card"
-            href="https://www.instagram.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-
-            <i class="fa-brands fa-instagram"></i>
-
-            <h3>
-                Instagram
-            </h3>
-
-            <p>
-                Follow my creative work.
-            </p>
-
-        </a>
-
-
-        <a
-            class="social-card"
-            href="https://www.facebook.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-
-            <i class="fa-brands fa-facebook-f"></i>
-
-            <h3>
-                Facebook
-            </h3>
-
-            <p>
-                Connect with me.
-            </p>
-
-        </a>
-
-
-        <a
-            class="social-card"
-            href="https://www.linkedin.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-
-            <i class="fa-brands fa-linkedin-in"></i>
-
-            <h3>
-                LinkedIn
-            </h3>
-
-            <p>
-                Professional network.
-            </p>
-
-        </a>
-
-
-        <a
-            class="social-card"
-            href="https://www.tiktok.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-
-            <i class="fa-brands fa-tiktok"></i>
-
-            <h3>
-                TikTok
-            </h3>
-
-            <p>
-                Creative short-form content.
-            </p>
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CV & CERTIFICATE
-===================================================== -->
-
-<section
-    id="certificates"
-    class="section documents-section"
->
-
-    <div class="section-heading">
-
-        <span class="eyebrow">
-            PROFESSIONAL DOCUMENTS
-        </span>
-
-        <h2>
-            CV &
-            <span class="gradient-text">
-                Certificate
-            </span>
-        </h2>
-
-        <p>
-            Professional credentials and career information.
-        </p>
-
-    </div>
-
-
-    <div class="documents-grid">
-
-
-        <!-- CV -->
-
-        <article class="document-card">
-
-            <div class="document-image portrait-document">
-
-                <img
-                    src="cv.png"
-                    alt="GMM Social Growth CV"
-                    loading="lazy"
-                >
-
-            </div>
-
-            <div class="document-content">
-
-                <span>
-                    PROFESSIONAL CV
-                </span>
-
-                <h3>
-                    My Resume
-                </h3>
-
-                <p>
-                    Professional experience, skills and services.
-                </p>
-
-                <a
-                    href="cv.png"
-                    target="_blank"
-                    class="document-btn"
-                >
-
-                    View CV
-
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
-                </a>
-
-            </div>
-
-        </article>
-
-
-        <!-- CERTIFICATE -->
-
-        <article class="document-card">
-
-            <div class="document-image portrait-document">
-
-                <img
-                    src="certificate.jpg"
-                    alt="Professional Certificate"
-                    loading="lazy"
-                >
-
-            </div>
-
-            <div class="document-content">
-
-                <span>
-                    CERTIFICATION
-                </span>
-
-                <h3>
-                    Professional Certificate
-                </h3>
-
-                <p>
-                    Professional learning and certification.
-                </p>
-
-                <a
-                    href="certificate.jpg"
-                    target="_blank"
-                    class="document-btn"
-                >
-
-                    View Certificate
-
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
-                </a>
-
-            </div>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
-<section
-    id="contact"
-    class="section contact-section"
->
-
-    <div class="contact-container">
-
-
-        <div class="contact-content">
-
-            <span class="eyebrow">
-                HAVE A PROJECT?
-            </span>
-
-            <h2>
-                Let's Build Something
-                <span class="gradient-text">
-                    Great Together.
-                </span>
-            </h2>
-
-            <p>
-                Looking for digital marketing, e-commerce,
-                graphic design or social media services?
-                Send me your requirements and let's discuss
-                your project.
-            </p>
-
-
-            <div class="contact-details">
+                class="footer-logo"
+                src="assets/logo.png"
+                alt="GMM Social Growth">
+
+            <div class="footer-social">
 
                 <a
                     href="mailto:gmmsocialgrowth@gmail.com"
-                    class="contact-item"
-                >
+                    aria-label="Email">
 
                     <i class="fa-solid fa-envelope"></i>
 
-                    <span>
-                        gmmsocialgrowth@gmail.com
-                    </span>
-
                 </a>
 
-
-                <!--
-                    WhatsApp number/link can be replaced
-                    with your real WhatsApp number.
-                -->
-
                 <a
-                    href="https://wa.me/"
+                    href="https://wa.me/923126038383"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    class="contact-item whatsapp-item"
-                >
+                    aria-label="WhatsApp">
 
                     <i class="fa-brands fa-whatsapp"></i>
 
-                    <span>
-                        Chat on WhatsApp
-                    </span>
+                </a>
+
+                <a
+                    href="#home"
+                    aria-label="Website">
+
+                    <i class="fa-solid fa-globe"></i>
 
                 </a>
 
             </div>
 
 
-            <a
-                href="mailto:gmmsocialgrowth@gmail.com"
-                class="btn btn-primary contact-btn"
-            >
-
-                Start Your Project
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </a>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-</main>
-
-
-<!-- =====================================================
-     PROJECT MODAL
-===================================================== -->
-
-<div
-    id="project-modal"
-    class="project-modal"
-    aria-hidden="true"
->
-
-    <div class="modal-backdrop"></div>
-
-
-    <div class="modal-window">
-
-
-        <button
-            type="button"
-            class="modal-close"
-            aria-label="Close project"
-        >
-
-            <i class="fa-solid fa-xmark"></i>
-
-        </button>
-
-
-        <div class="modal-header">
-
-            <span>
-                PROJECT GALLERY
-            </span>
-
-            <h2 id="modal-project-title">
-                Project
-            </h2>
-
-        </div>
-
-
-        <div
-            id="modal-gallery"
-            class="modal-gallery"
-        >
-
-        </div>
-
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     FLOATING WHATSAPP
-===================================================== -->
-
-<a
-    href="https://wa.me/"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="floating-whatsapp"
-    aria-label="Chat on WhatsApp"
->
-
-    <i class="fa-brands fa-whatsapp"></i>
-
-    <span>
-        WhatsApp
-    </span>
-
-</a>
-
-
-<!-- =====================================================
-     BACK TO TOP
-===================================================== -->
-
-<button
-    class="back-to-top"
-    type="button"
-    aria-label="Back to top"
->
-
-    <i class="fa-solid fa-arrow-up"></i>
-
-</button>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer class="site-footer">
-
-    <div class="footer-inner">
-
-
-        <a
-            href="#home"
-            class="footer-brand"
-        >
-
-            <img
-                src="logo.png"
-                alt="GMM Social Growth"
-            >
-
-            <span>
-                GMM Social Growth
-            </span>
-
-        </a>
-
-
-        <p>
-            Digital Marketing • E-Commerce • Design • Growth
-        </p>
-
-
-        <div class="footer-links">
-
-            <a href="#home">
-                Home
-            </a>
-
-            <a href="#services">
-                Services
-            </a>
-
-            <a href="#projects">
-                Projects
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
-        </div>
-
-
-        <div class="footer-socials">
-
-            <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-
-            <a
-                href="https://www.facebook.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <i class="fa-brands fa-facebook"></i>
-            </a>
-
-            <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
-
-            <a
-                href="https://www.tiktok.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <i class="fa-brands fa-tiktok"></i>
-            </a>
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <span>
-                © <span id="currentYear"></span>
-                GMM Social Growth.
+            <p>
+                © 2026 GMM Social Growth.
                 All Rights Reserved.
-            </span>
+            </p>
 
         </div>
 
+    </footer>
+
+
+    <!-- =========================================================
+         WHATSAPP FLOAT
+    ========================================================= -->
+
+    <a
+        href="https://wa.me/923126038383"
+        target="_blank"
+        class="whatsapp-float"
+        aria-label="WhatsApp">
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+    </a>
+
+
+    <!-- =========================================================
+         PROJECT GALLERY MODAL
+    ========================================================= -->
+
+    <div
+        class="modal"
+        id="galleryModal">
+
+        <div class="modal-content">
+
+            <div class="modal-head">
+
+                <h3 id="modalTitle">
+                    Project
+                </h3>
+
+                <button
+                    class="modal-close"
+                    onclick="closeModal()">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <div
+                class="gallery-grid"
+                id="galleryGrid">
+            </div>
+
+        </div>
 
     </div>
 
-</footer>
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
+
+    <script>
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        const navLinks =
+            document.getElementById("navLinks");
 
 
-<!-- =====================================================
-     MAIN JAVASCRIPT
-===================================================== -->
+        menuBtn.addEventListener("click", () => {
 
-<script src="script.js"></script>
+            navLinks.classList.toggle("active");
 
+        });
+
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    navLinks.classList.remove("active");
+
+                });
+
+            });
+
+
+        /* =====================================================
+           TYPING EFFECT
+        ===================================================== */
+
+        const typingText =
+            document.getElementById("typingText");
+
+
+        const skills = [
+
+            "Digital Marketing",
+            "Social Media Marketing",
+            "Meta Ads",
+            "TikTok Ads",
+            "SEO",
+            "Shopify Store Design",
+            "E-commerce Marketing",
+            "Graphic Design",
+            "Video Editing",
+            "UGC Ads Creatives",
+            "Thumbnail Design",
+            "Web Development"
+
+        ];
+
+
+        let skillIndex = 0;
+
+        let characterIndex = 0;
+
+        let deleting = false;
+
+
+        function typeSkill() {
+
+            const currentSkill =
+                skills[skillIndex];
+
+
+            if (!deleting) {
+
+                typingText.textContent =
+                    currentSkill.substring(
+                        0,
+                        characterIndex + 1
+                    );
+
+                characterIndex++;
+
+
+                if (
+                    characterIndex ===
+                    currentSkill.length
+                ) {
+
+                    deleting = true;
+
+                    setTimeout(
+                        typeSkill,
+                        1300
+                    );
+
+                    return;
+
+                }
+
+            } else {
+
+                typingText.textContent =
+                    currentSkill.substring(
+                        0,
+                        characterIndex - 1
+                    );
+
+                characterIndex--;
+
+
+                if (characterIndex === 0) {
+
+                    deleting = false;
+
+                    skillIndex++;
+
+                    if (
+                        skillIndex >=
+                        skills.length
+                    ) {
+
+                        skillIndex = 0;
+
+                    }
+
+                }
+
+            }
+
+
+            setTimeout(
+                typeSkill,
+                deleting ? 45 : 80
+            );
+
+        }
+
+
+        typeSkill();
+
+
+        /* =====================================================
+           SHOPIFY PROJECT DATA
+        ===================================================== */
+
+        const projects = {
+
+            "bags": {
+
+                title: "Bags Shopify Store",
+
+                images: [
+
+                    "assets/bags-1.png",
+                    "assets/bags-2.png",
+                    "assets/bags-3.png",
+                    "assets/bags-4.png",
+                    "assets/bags-5.png"
+
+                ]
+
+            },
+
+
+            "beauty": {
+
+                title: "Beauty Shopify Store",
+
+                images: [
+
+                    "assets/beauty-1.png",
+                    "assets/beauty-2.png",
+                    "assets/beauty-3.png",
+                    "assets/beauty-4.png",
+                    "assets/beauty-5.png",
+                    "assets/beauty-6.png"
+
+                ]
+
+            },
+
+
+            "clothing": {
+
+                title: "Clothing Shopify Store",
+
+                images: [
+
+                    "assets/clothing-1.png",
+                    "assets/clothing-2.png",
+                    "assets/clothing-3.png",
+                    "assets/clothing-4.png",
+                    "assets/clothing-5.png"
+
+                ]
+
+            },
+
+
+            "glow": {
+
+                title: "Glow Shopify Store",
+
+                images: [
+
+                    "assets/glow-1.png",
+                    "assets/glow-2.png",
+                    "assets/glow-3.png",
+                    "assets/glow-4.png",
+                    "assets/glow-5.png"
+
+                ]
+
+            },
+
+
+            "jewellery": {
+
+                title: "Jewellery Shopify Store",
+
+                images: [
+
+                    "assets/jewellery-1.png",
+                    "assets/jewellery-2.png",
+                    "assets/jewellery-3.png",
+                    "assets/jewellery-4.png",
+                    "assets/jewellery-5.png",
+                    "assets/jewellery-6.png"
+
+                ]
+
+            },
+
+
+            "mobile-electronics": {
+
+                title: "Mobile Electronics Shopify Store",
+
+                images: [
+
+                    "assets/mobile-electronics-1.png",
+                    "assets/mobile-electronics-2.png",
+                    "assets/mobile-electronics-3.png",
+                    "assets/mobile-electronics-4.png",
+                    "assets/mobile-electronics-5.png",
+                    "assets/mobile-electronics-6.png"
+
+                ]
+
+            },
+
+
+            "shoes": {
+
+                title: "Shoes Shopify Store",
+
+                images: [
+
+                    "assets/shoes-1.png",
+                    "assets/shoes-2.png",
+                    "assets/shoes-3.png",
+                    "assets/shoes-4.png"
+
+                ]
+
+            },
+
+
+            "skincare": {
+
+                title: "Skincare Shopify Store",
+
+                images: [
+
+                    "assets/skincare-1.png",
+                    "assets/skincare-2.png",
+                    "assets/skincare-3.png",
+                    "assets/skincare-4.png",
+                    "assets/skincare-5.png",
+                    "assets/skincare-6.png"
+
+                ]
+
+            },
+
+
+            "watches": {
+
+                title: "Watches Shopify Store",
+
+                images: [
+
+                    "assets/watches-1.png",
+                    "assets/watches-2.png",
+                    "assets/watches-3.png",
+                    "assets/watches-4.png"
+
+                ]
+
+            },
+
+
+            "fashion": {
+
+                title: "Fashion Shopify Store",
+
+                images: [
+
+                    "assets/fashion-1.png",
+                    "assets/fashion-2.png",
+                    "assets/fashion-3.png",
+                    "assets/fashion-4.png",
+                    "assets/fashion-5.png",
+                    "assets/fashion-6.png",
+                    "assets/fashion-7.png"
+
+                ]
+
+            },
+
+
+            "ecommerce": {
+
+                title: "E-commerce Shopify Store",
+
+                images: [
+
+                    "assets/ecommerce-1.png",
+                    "assets/ecommerce-2.png",
+                    "assets/ecommerce-3.png",
+                    "assets/ecommerce-4.png",
+                    "assets/ecommerce-5.png"
+
+                ]
+
+            },
+
+
+            "uae-ecommerce": {
+
+                title: "UAE E-commerce Shopify Store",
+
+                images: [
+
+                    "assets/uae-ecommerce-1.png",
+                    "assets/uae-ecommerce-2.png",
+                    "assets/uae-ecommerce-3.png",
+                    "assets/uae-ecommerce-4.png",
+                    "assets/uae-ecommerce-5.png"
+
+                ]
+
+            }
+
+        };
+
+
+        /* =====================================================
+           OPEN SHOPIFY GALLERY
+        ===================================================== */
+
+        function openGallery(projectName) {
+
+            const project =
+                projects[projectName];
+
+
+            if (!project) return;
+
+
+            const modal =
+                document.getElementById(
+                    "galleryModal"
+                );
+
+
+            const title =
+                document.getElementById(
+                    "modalTitle"
+                );
+
+
+            const grid =
+                document.getElementById(
+                    "galleryGrid"
+                );
+
+
+            title.textContent =
+                project.title;
+
+
+            grid.innerHTML = "";
+
+
+            project.images.forEach(
+                (image, index) => {
+
+                    const item =
+                        document.createElement("div");
+
+                    item.className =
+                        "gallery-item";
+
+
+                    item.innerHTML = `
+
+                        <img
+                            src="${image}"
+                            alt="${project.title} Screenshot ${index + 1}"
+                            loading="lazy">
+
+                    `;
+
+
+                    grid.appendChild(item);
+
+                }
+            );
+
+
+            modal.classList.add("active");
+
+            document.body.style.overflow =
+                "hidden";
+
+        }
+
+
+        /* =====================================================
+           GRAPHIC DESIGN GALLERY
+        ===================================================== */
+
+        function openGraphic(number) {
+
+            const modal =
+                document.getElementById(
+                    "galleryModal"
+                );
+
+
+            const title =
+                document.getElementById(
+                    "modalTitle"
+                );
+
+
+            const grid =
+                document.getElementById(
+                    "galleryGrid"
+                );
+
+
+            title.textContent =
+                `Graphic Design Project ${number}`;
+
+
+            grid.innerHTML = `
+
+                <div class="gallery-item">
+
+                    <img
+                        src="assets/thumbnail-${number}.png"
+                        alt="Graphic Design Project ${number}">
+
+                </div>
+
+            `;
+
+
+            modal.classList.add("active");
+
+            document.body.style.overflow =
+                "hidden";
+
+        }
+
+
+        /* =====================================================
+           CLOSE MODAL
+        ===================================================== */
+
+        function closeModal() {
+
+            document
+                .getElementById("galleryModal")
+                .classList.remove("active");
+
+
+            document.body.style.overflow =
+                "";
+
+        }
+
+
+        document
+            .getElementById("galleryModal")
+            .addEventListener(
+                "click",
+                function(event) {
+
+                    if (
+                        event.target === this
+                    ) {
+
+                        closeModal();
+
+                    }
+
+                }
+            );
+
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    closeModal();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           SCROLL REVEAL
+        ===================================================== */
+
+        const revealElements =
+            document.querySelectorAll(
+                ".reveal"
+            );
+
+
+        const revealObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(
+                        entry => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "show"
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        revealElements.forEach(
+            element => {
+
+                revealObserver.observe(
+                    element
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           ACTIVE NAVIGATION
+        ===================================================== */
+
+        const sections =
+            document.querySelectorAll(
+                "section[id]"
+            );
+
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                const scrollPosition =
+                    window.scrollY + 150;
+
+
+                sections.forEach(
+                    section => {
+
+                        const top =
+                            section.offsetTop;
+
+                        const bottom =
+                            top +
+                            section.offsetHeight;
+
+
+                        const id =
+                            section.getAttribute(
+                                "id"
+                            );
+
+
+                        const link =
+                            document.querySelector(
+                                `.nav-links a[href="#${id}"]`
+                            );
+
+
+                        if (
+                            scrollPosition >= top &&
+                            scrollPosition < bottom
+                        ) {
+
+                            document
+                                .querySelectorAll(
+                                    ".nav-links a"
+                                )
+                                .forEach(
+                                    a =>
+                                        a.style.color =
+                                        ""
+                                );
+
+
+                            if (link) {
+
+                                link.style.color =
+                                    "var(--gold)";
+
+                            }
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
 
 </body>
 </html>
