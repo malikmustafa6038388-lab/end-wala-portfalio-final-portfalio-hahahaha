@@ -18,7 +18,7 @@
     <title>GMM Social Growth | Digital Marketing Portfolio</title>
 
     <!-- FAVICON -->
-    <link rel="icon" type="image/jpeg" href="assets/logo1.jpeg">
+    <link rel="icon" type="image/jpeg" href="logo1.jpeg">
 
     <!-- GOOGLE FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -546,97 +546,24 @@
         /* =========================================================
            PROFILE IMAGE
         ========================================================= */
+<div class="hero-profile">
 
-        .hero-profile {
-            position: relative;
+    <div class="profile-glow"></div>
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    <div class="profile-ring">
 
-        .profile-ring {
-            width: min(430px, 82vw);
-            aspect-ratio: 1;
+        <div class="profile-inner">
 
-            border-radius: 50%;
+            <img
+                src="profile.jpeg"
+                alt="GMM Social Growth Profile"
+            >
 
-            padding: 10px;
+        </div>
 
-            background:
-                conic-gradient(
-                    from 0deg,
-                    var(--blue),
-                    transparent 25%,
-                    var(--gold),
-                    transparent 60%,
-                    var(--blue)
-                );
+    </div>
 
-            animation:
-                ringRotate 8s linear infinite;
-        }
-
-        @keyframes ringRotate {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .profile-inner {
-            width: 100%;
-            height: 100%;
-
-            border-radius: 50%;
-
-            overflow: hidden;
-
-            background: #020617;
-
-            border:
-                8px solid #020617;
-
-            animation:
-                profileFloat 4s ease-in-out infinite;
-        }
-
-        .profile-inner img {
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-        }
-
-        @keyframes profileFloat {
-
-            0%,
-            100% {
-                transform: translateY(-12px);
-            }
-
-            50% {
-                transform: translateY(18px);
-            }
-        }
-
-        .profile-glow {
-            position: absolute;
-
-            width: 280px;
-            height: 280px;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(56,189,248,.20),
-                    transparent 70%
-                );
-
-            filter: blur(20px);
-
-            z-index: -1;
-        }
-
+</div>
 
         /* =========================================================
            SECTIONS
